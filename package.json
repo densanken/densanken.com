@@ -1,0 +1,42 @@
+{
+  "name": "densanken.com",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "dev": "astro dev",
+    "start": "astro preview",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "tsc --noEmit && eslint --fix && prettier --write .",
+    "lint:check": "tsc --noEmit && eslint",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "check": "tsc --noEmit && eslint && prettier --check ."
+  },
+  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
+  "dependencies": {
+    "@astrojs/react": "^4.0.0",
+    "astro": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0",
+    "eslint-plugin-astro": "^1.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "lefthook": "^2.0.15",
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "typescript": "^5.2.2",
+    "typescript-eslint": "^8.3.0"
+  }
+}
