@@ -1,6 +1,6 @@
 # densanken.com
 
-CCS の公式サイト（https://densanken.com）のリポジトリです。
+CCS の公式サイト（[https://densanken.com](https://densanken.com)）のリポジトリです。
 
 ## セットアップ
 
