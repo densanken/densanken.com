@@ -1,0 +1,161 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  date: string;
+  discription: string;
+  badge: string;
+}
+
+const { href, title, date, description, badge } = Astro.props;
+---
+
+<div id="news">
+  <h2>News</h2>
+  <div class="card">
+    <a class="card-link" href={href}></a>
+    <div class="card-header">
+      <span class="date">{date}</span>
+      <span class="badge">{badge}</span>
+    </div>
+    <h2 class="title">{title}</h2>
+    <p class="description">{description}</p>
+    <span class="link-like">続きを読む &rarr;</span>
+  </div>
+  <div class="button">
+    <a href="/news"></a>
+    すべてのNewsを見る &rarr;
+  </div>
+</div>
+<style>
+  #news {
+    padding: 8px 20px;
+  }
+
+  h2 {
+    color: #000;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .card {
+    width: 380px;
+    padding: 12px;
+    margin-bottom: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .card .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card .date {
+    color: #000;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .card .badge {
+    width: 49.608px;
+    height: 21.098px;
+    border-radius: 5px;
+    background: #bed3ff;
+
+    text-align: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .card .title {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .card .description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .card .link-like {
+    align-items: center;
+    text-decoration: underline;
+    cursor: pointer;
+
+    color: #212cff;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+
+  .button {
+    width: fit-content;
+    height: 50px;
+    padding: 15px 18px;
+    border-radius: 30px;
+    position: relative;
+    background: #9c2fcf;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    color: #f9f6ef;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .button a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
