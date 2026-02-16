@@ -22,13 +22,10 @@ const { href, title, date, description, badge } = Astro.props;
 </div>
 <style>
   .card {
-    width: 380px;
-    padding: 12px;
+    width: 100%;
+    padding: 12px 18px;
     margin-bottom: 16px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 
     border-radius: 15px;
     background: #fff;
@@ -59,8 +56,8 @@ const { href, title, date, description, badge } = Astro.props;
   }
 
   .card .badge {
-    width: 49.608px;
-    height: 21.098px;
+    width: 48px;
+    height: 20px;
     border-radius: 5px;
     background: #bed3ff;
 
