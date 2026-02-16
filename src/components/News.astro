@@ -1,13 +1,13 @@
-<div id="news">
+<div class="news-root">
   <h2>News</h2>
   <slot />
   <div class="button">
-    <a href="/news"></a>
+    <a href="/news" aria-label="すべてのNewsを見る"></a>
     すべてのNewsを見る &rarr;
   </div>
 </div>
 <style>
-  #news {
+  .news-root {
     padding: 8px 20px;
   }
 
@@ -19,7 +19,7 @@
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .button {
@@ -39,7 +39,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .button a {

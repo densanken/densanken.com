@@ -11,12 +11,12 @@ const { href, title, date, description, badge } = Astro.props;
 ---
 
 <div class="card">
-  <a class="card-link" href={href}></a>
+  <a class="card-link" href={href} aria-label={`${title}の記事詳細ページへ`}></a>
   <div class="card-header">
     <span class="date">{date}</span>
     <span class="badge">{badge}</span>
   </div>
-  <h2 class="title">{title}</h2>
+  <h3 class="title">{title}</h3>
   <p class="description">{description}</p>
   <span class="link">続きを読む &rarr;</span>
 </div>
@@ -52,7 +52,7 @@ const { href, title, date, description, badge } = Astro.props;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .card .badge {
@@ -67,7 +67,7 @@ const { href, title, date, description, badge } = Astro.props;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .card .title {
@@ -76,7 +76,7 @@ const { href, title, date, description, badge } = Astro.props;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .card .description {
@@ -89,20 +89,16 @@ const { href, title, date, description, badge } = Astro.props;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.4;
   }
 
   .card .link {
-    align-items: center;
-    text-decoration: underline;
-    cursor: pointer;
-
     color: #212cff;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.4;
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: auto;
