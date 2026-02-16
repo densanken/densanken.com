@@ -13,7 +13,7 @@ const { title, description = "千葉大学のサークルCCSの公式サイト" 
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={description ?? "千葉大学電子計算機研究会（CCS）は、プログラム・DTM・グラフィックなど、コンピュータに関連した創作活動を行うサークルです。"} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
