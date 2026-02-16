@@ -1,0 +1,118 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  date: string;
+  description: string;
+  badge: string;
+}
+
+const { href, title, date, description, badge } = Astro.props;
+---
+
+<div class="card">
+  <a class="card-link" href={href}></a>
+  <div class="card-header">
+    <span class="date">{date}</span>
+    <span class="badge">{badge}</span>
+  </div>
+  <h2 class="title">{title}</h2>
+  <p class="description">{description}</p>
+  <span class="link">続きを読む &rarr;</span>
+  <div>
+    <style>
+      .card {
+        width: 380px;
+        padding: 12px;
+        margin-bottom: 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .card .card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .card .card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .card .date {
+        color: #000;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .card .badge {
+        width: 49.608px;
+        height: 21.098px;
+        border-radius: 5px;
+        background: #bed3ff;
+
+        text-align: center;
+        color: #000;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .card .title {
+        color: #000;
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .card .description {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .card .link {
+        align-items: center;
+        text-decoration: underline;
+        cursor: pointer;
+
+        color: #212cff;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: auto;
+        text-underline-offset: auto;
+        text-underline-position: from-font;
+      }
+    </style>
+  </div>
+</div>
