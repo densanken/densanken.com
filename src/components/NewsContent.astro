@@ -7,7 +7,7 @@ interface Props {
   badges?: string[];
 }
 
-const { href, title, date, description, badges = [] } = Astro.props;
+const { href, title, date, description, badges } = Astro.props;
 
 const dateStr =
   date instanceof Date
@@ -24,7 +24,7 @@ const dateStr =
   <div class="card-header">
     <span class="date">{dateStr}</span>
     {
-      badges.length > 0 && (
+      badges && badges.length > 0 && (
         <div class="badge-container">
           {badges.map((badge) => (
             <span class="badge">{badge}</span>
