@@ -4,17 +4,25 @@ interface Props {
   title: string;
   date: string;
   description: string;
-  badge: string;
+  badges?: string[];
 }
 
-const { href, title, date, description, badge } = Astro.props;
+const { href, title, date, description, badges = [] } = Astro.props;
 ---
 
 <div class="card">
   <a class="card-link" href={href} aria-label={`${title}の記事詳細ページへ`}></a>
   <div class="card-header">
     <span class="date">{date}</span>
-    <span class="badge">{badge}</span>
+    {
+      badges.length > 0 && (
+        <div class="badge-container">
+          {badges.map((badge) => (
+            <span class="badge">{badge}</span>
+          ))}
+        </div>
+      )
+    }
   </div>
   <h3 class="title">{title}</h3>
   <p class="description">{description}</p>
@@ -52,6 +60,12 @@ const { href, title, date, description, badge } = Astro.props;
     font-style: normal;
     font-weight: 400;
     line-height: 1.4;
+  }
+
+  .card .badge-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .card .badge {
