@@ -2,18 +2,27 @@
 interface Props {
   href: string;
   title: string;
-  date: string;
+  date: Date | string;
   description: string;
   badges?: string[];
 }
 
 const { href, title, date, description, badges = [] } = Astro.props;
+
+const dateStr =
+  date instanceof Date
+    ? new Intl.DateTimeFormat("ja-JP", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }).format(date)
+    : date;
 ---
 
 <div class="card">
   <a class="card-link" href={href} aria-label={`${title}の記事詳細ページへ`}></a>
   <div class="card-header">
-    <span class="date">{date}</span>
+    <span class="date">{dateStr}</span>
     {
       badges.length > 0 && (
         <div class="badge-container">
