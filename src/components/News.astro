@@ -1,10 +1,7 @@
 <div class="news-root">
   <h2>News</h2>
   <slot />
-  <div class="button">
-    <a href="/news" aria-label="すべてのNewsを見る"></a>
-    すべてのNewsを見る &rarr;
-  </div>
+  <a class="button" href="/news" style="background-color: #9c2fcf;">すべてのNewsを見る &rarr;</a>
 </div>
 <style>
   .news-root {
@@ -19,32 +16,5 @@
     font-style: normal;
     font-weight: 700;
     line-height: 1.4;
-  }
-
-  .button {
-    width: fit-content;
-    height: 50px;
-    padding: 15px 18px;
-    border-radius: 30px;
-    margin: auto auto 28px 16px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: #9c2fcf;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-
-    color: #f9f6ef;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .button a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
   }
 </style>
