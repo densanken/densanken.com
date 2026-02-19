@@ -29,7 +29,7 @@ export default function HamburgerMenu({ menuItems }: Props) {
       <button
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
-        aria-label="メニューを開く"
+        aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
         className="relative z-20 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-zinc-300 bg-white text-zinc-900"
         onClick={() => {
           setIsOpen((prev) => !prev);
