@@ -1,7 +1,7 @@
 <div class="news-root">
   <h2>News</h2>
   <slot />
-  <a class="button" href="/news" style="background-color: #9c2fcf;">すべてのNewsを見る &rarr;</a>
+  <a class="button news-button" href="/news">すべてのNewsを見る &rarr;</a>
 </div>
 <style>
   .news-root {
@@ -16,5 +16,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: 1.4;
+  }
+
+  .news-button {
+    margin: 0px auto 28px 16px;
+    background-color: #9c2fcf;
   }
 </style>
