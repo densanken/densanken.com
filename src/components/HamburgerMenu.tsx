@@ -14,7 +14,7 @@ export default function HamburgerMenu({ menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative md:hidden">
+    <div className="relative sm:hidden">
       {isOpen && (
         <button
           aria-label="メニューを閉じる"
@@ -30,7 +30,7 @@ export default function HamburgerMenu({ menuItems }: Props) {
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
-        className="relative z-20 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-zinc-300 bg-white text-zinc-900"
+        className="relative z-30 inline-flex h-8 w-8 cursor-pointer items-center justify-center text-zinc-900"
         onClick={() => {
           setIsOpen((prev) => !prev);
         }}
@@ -47,16 +47,16 @@ export default function HamburgerMenu({ menuItems }: Props) {
 
       <nav
         aria-label="グローバルメニュー"
-        className={`absolute top-[calc(100%+4px)] right-0 z-20 w-[min(12rem,calc(100vw-2.5rem))] rounded-xl border border-zinc-200 bg-white p-2 shadow-lg ${
+        className={`pointer-events-none fixed inset-0 z-20 bg-white/30 backdrop-blur-sm backdrop-saturate-150 ${
           isOpen ? "block" : "hidden"
         }`}
         id="mobile-menu"
       >
-        <ul className="grid gap-1">
+        <ul className="pointer-events-auto grid px-20 pt-24">
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
-                className="block rounded-lg px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-100"
+                className="block w-full border-b border-zinc-300/30 px-3 py-3 text-center text-lg font-medium text-zinc-700 hover:border-zinc-300"
                 href={item.href}
                 onClick={() => {
                   setIsOpen(false);

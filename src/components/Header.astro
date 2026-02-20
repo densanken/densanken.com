@@ -14,32 +14,22 @@ const menuItems = [
 ];
 ---
 
-<header class="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-zinc-200 bg-white px-3 py-2">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-zinc-200 bg-white px-3 py-1">
   <div class="flex items-center gap-2">
-    <span
-      aria-hidden="true"
-      class="inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-md border border-zinc-300 bg-white"
-    >
-      <Image
-        src={circleLogo}
-        alt="circle logo"
-        width={44}
-        height={44}
-        densities={[1, 2]}
-        class="h-full w-full object-contain"
-      />
-    </span>
-    <span class="text-base font-bold tracking-[0.04em] text-zinc-900">CCS</span>
+    <a href="https://densanken.com" aria-label="densanken.comへ移動" class="inline-flex items-center">
+      <Image src={circleLogo} alt="circle logo" densities={[1, 2]} class="h-8 w-auto" />
+    </a>
+    <span class="text-zinc-700">CCS</span>
   </div>
 
   <HamburgerMenu menuItems={menuItems} client:load />
 
-  <nav class="hidden md:block" aria-label="グローバルメニュー">
-    <ul class="flex items-center gap-1">
+  <nav class="hidden sm:block" aria-label="グローバルメニュー">
+    <ul class="flex items-center">
       {
         menuItems.map((item) => (
           <li>
-            <a href={item.href} class="block rounded-lg px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-100">
+            <a href={item.href} class="block rounded-sm px-3 py-1 text-sm text-zinc-800 hover:bg-zinc-50">
               {item.label}
             </a>
           </li>
