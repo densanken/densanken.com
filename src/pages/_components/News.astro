@@ -1,1 +1,25 @@
-<div>News</div>
+<div class="news-root">
+  <h2>News</h2>
+  <slot />
+  <a class="button news-button" href="/news">すべてのNewsを見る &rarr;</a>
+</div>
+<style>
+  .news-root {
+    padding: 8px 20px;
+  }
+
+  h2 {
+    margin: auto auto 14px 16px;
+
+    color: #000;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .news-button {
+    margin: 0px auto 28px 16px;
+    background-color: #9c2fcf;
+  }
+</style>
