@@ -20,7 +20,11 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="pt-12 pb-6 text-center">
-  <div class="flex flex-col items-center justify-evenly gap-12 md:flex-row-reverse md:items-start">
+  <div class="flex flex-col items-center justify-evenly gap-12 md:flex-row md:items-start">
+    <!-- PCメニュー -->
+    <div class="hidden flex-col items-start gap-2 md:flex">
+      {footerMenuItems.map((item) => <a href={item.href}>{item.title}</a>)}
+    </div>
     <div class="flex flex-col items-center gap-6">
       <p>千葉大学電子計算機研究会</p>
       <div class="flex flex-col gap-6">
@@ -39,7 +43,8 @@ const year = new Date().getFullYear();
         </a>
       </div>
     </div>
-    <div class="flex flex-col items-start gap-2">
+    <!-- モバイルメニュー（見た目順とフォーカス順を一致させるため） -->
+    <div class="flex flex-col items-start gap-2 md:hidden">
       {footerMenuItems.map((item) => <a href={item.href}>{item.title}</a>)}
     </div>
   </div>
