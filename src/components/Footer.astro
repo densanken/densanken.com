@@ -1,1 +1,49 @@
-<div>フッター</div>
+---
+import { Image } from "astro:assets";
+
+import GitHubLogo from "../assets/GitHubLogo.svg";
+import XLogo from "../assets/XLogo.svg";
+
+const footerMenuItems = [
+  { title: "トップ", href: "/" },
+  { title: "News", href: "/news" },
+  { title: "活動紹介", href: "/activities" },
+  { title: "作品集", href: "/works" },
+  { title: "お問い合わせ", href: "/contact" },
+  { title: "プライバシーポリシー", href: "/privacy" },
+] satisfies {
+  title: string;
+  href: string;
+}[];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="pt-12 pb-6 text-center">
+  <div class="flex flex-col items-center justify-evenly gap-12 md:flex-row-reverse md:items-start">
+    <div class="flex flex-col items-center gap-6">
+      <p>千葉大学電子計算機研究会</p>
+      <div class="flex flex-col gap-6">
+        <a href="https://x.com/densanken" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2">
+          <Image src={XLogo} alt="X Logo" width={28} height={28} />
+          <span>@densanken</span>
+        </a>
+        <a
+          href="https://github.com/densanken"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2"
+        >
+          <Image src={GitHubLogo} alt="GitHub Logo" width={28} height={28} />
+          <span>densanken</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-2">
+      {footerMenuItems.map((item) => <a href={item.href}>{item.title}</a>)}
+    </div>
+  </div>
+  <p class="mt-8">
+    Copyright &copy; {year} 千葉大学電子計算機研究会<br class="md:hidden" /> All rights reserved.
+  </p>
+</footer>
