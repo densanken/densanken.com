@@ -19,102 +19,22 @@ const dateStr =
     : date;
 ---
 
-<a class="card" href={href}>
-  <div class="card-header">
-    <span class="date">{dateStr}</span>
+<a href={href} class="relative mb-4 block w-full max-w-210 rounded-2xl bg-white px-4 py-3 shadow shadow-black/25">
+  <div class="flex items-center gap-3">
+    <span class="text-sm">{dateStr}</span>
     {
       badges && badges.length > 0 && (
-        <div class="badge-container">
+        <div class="flex items-center gap-1">
           {badges.map((badge) => (
-            <span class="badge">{badge}</span>
+            <span class="h-5 min-w-12 rounded bg-indigo-200 px-2 text-center text-sm font-bold">{badge}</span>
           ))}
         </div>
       )
     }
   </div>
-  <h3 class="title">{title}</h3>
-  <p class="description">{description}</p>
-  <span class="link">続きを読む &rarr;</span>
+  <h3 class="mt-1 text-lg font-bold">{title}</h3>
+  <p class="text-overflow-ellipsis overflow-hidden whitespace-nowrap">
+    {description}
+  </p>
+  <span class="text-sm text-blue-600 underline"> 続きを読む &rarr; </span>
 </a>
-<style>
-  .card {
-    width: 100%;
-    padding: 12px 18px;
-    margin-bottom: 16px;
-    display: block;
-    position: relative;
-
-    border-radius: 15px;
-    background: #fff;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  }
-
-  .card .card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .card .date {
-    color: #000;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  .card .badge-container {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .card .badge {
-    min-width: 48px;
-    height: 20px;
-    padding: 0 8px;
-    border-radius: 5px;
-    background: #bed3ff;
-
-    text-align: center;
-    color: #000;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .card .title {
-    color: #000;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .card .description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    color: #000;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.4;
-  }
-
-  .card .link {
-    color: #212cff;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.4;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
-    text-underline-position: from-font;
-  }
-</style>
