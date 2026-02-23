@@ -1,67 +1,29 @@
-<div class="catchcopy-root">
-  <div class="circle" style="background-color: #F0F5EF; height: 196px; width: 196px; top: 15px; right: -80px;"></div>
-  <div class="circle" style="background-color: #F9EDF2; height: 176px; width: 176px; bottom: -50px; left: 120px;"></div>
-  <div class="circle" style="background-color: #EBEFF6; height: 148px; width: 148px; top: -50px; left: 50px;"></div>
+<div class="relative overflow-hidden">
+  <!-- Background Circles -->
+  <div class="absolute top-[15px] -right-[80px] z-0 h-[196px] w-[196px] rounded-full bg-[#F0F5EF]"></div>
+  <div class="absolute -bottom-[50px] left-[120px] z-0 h-[176px] w-[176px] rounded-full bg-[#F9EDF2]"></div>
+  <div class="absolute -top-[50px] left-[50px] z-0 h-[148px] w-[148px] rounded-full bg-[#EBEFF6]"></div>
 
-  <div class="content">
-    <h1>
+  <!-- Content -->
+  <div class="relative z-10 mt-4 mr-auto mb-[30px] ml-5 flex flex-col gap-4">
+    <h1 class="text-2xl leading-[1.2] font-bold">
       デジタルで<br />
-      <span style="color: #24AD48;">つくる、</span>
-      <span style="color: #54AD24;">あそぶ、</span><br />
-      <span style="color: #3E32ED;">つながる。</span>
+      <span class="text-[#24AD48]">つくる、</span>
+      <span class="text-[#54AD24]">あそぶ、</span><br />
+      <span class="text-[#3E32ED]">つながる。</span>
     </h1>
 
-    <p>
+    <p class="text-base leading-[1.2] font-normal text-[#333]">
       CCS（千葉大学電子計算機研究会）は、<br />
       ゲーム制作を中心に、プログラミング、<br />
       DTM、グラフィックなどの創作活動を行っています。
     </p>
 
-    <a href="/activities" class="button">活動内容を見る &rarr;</a>
-    <a href="/join" class="button join-button">入会する &rarr;</a>
+    <div class="flex flex-col items-start gap-4">
+      <a href="/activities" class="inline-block">活動内容を見る &rarr;</a>
+      <a href="/join" class="inline-block rounded-[30px] border-2 border-[#3195f3] bg-white px-4 py-2 text-[#3195f3]">
+        入会する &rarr;
+      </a>
+    </div>
   </div>
 </div>
-<style>
-  .catchcopy-root {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 0;
-  }
-
-  .content {
-    margin: 16px auto 30px 20px;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .content h1 {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  .content p {
-    color: #333;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.2;
-  }
-
-  .content .join-button {
-    border-radius: 30px;
-    border: 2px solid #3195f3;
-    background: #fff;
-
-    color: #3195f3;
-  }
-</style>
