@@ -8,9 +8,6 @@ const { href, class: className } = Astro.props;
 ---
 
 <a
-  class:list={[
-    "flex h-12 w-fit items-center rounded-full px-4 py-4 font-bold text-white shadow shadow-black/25",
-    className,
-  ]}
+  class:list={["flex h-12 w-fit items-center rounded-full px-4 font-bold shadow shadow-black/25", className]}
   href={href}><slot /></a
 >
