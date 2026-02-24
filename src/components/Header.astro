@@ -2,39 +2,32 @@
 import { Image } from "astro:assets";
 
 import HamburgerMenu from "./HamburgerMenu";
+import { HEADER_MENU_ITEMS } from "./headerMenuItems";
 import circleLogo from "../assets/circle-logo.png";
-
-const menuItems = [
-  { label: "ホーム", href: "/" },
-  { label: "活動内容", href: "/activities" },
-  { label: "作品紹介", href: "/works" },
-  { label: "お知らせ", href: "/news" },
-  { label: "blog", href: "/blog" },
-  { label: "お問い合わせ", href: "/contact" },
-];
 ---
 
-<header class="sticky top-0 z-10 flex items-center justify-between border-b border-zinc-200 bg-white px-3 py-1">
-  <div class="flex items-center gap-2">
-    <a href="https://densanken.com" aria-label="densanken.comへ移動" class="inline-flex items-center">
-      <Image src={circleLogo} alt="circle logo" densities={[1, 2]} class="h-8 w-auto" />
-    </a>
+<header class="sticky top-0 z-10 flex items-stretch border-b border-zinc-200 bg-white">
+  <a href="https://densanken.com" aria-label="densanken.comへ移動" class="inline-flex shrink-0 items-center">
+    <Image src={circleLogo} alt="circle logo" densities={[1, 2]} class="block h-12 w-auto" />
+  </a>
+
+  <div class="flex min-w-0 flex-1 items-center justify-between px-3 py-2">
     <span class="text-zinc-700">CCS</span>
+
+    <HamburgerMenu menuItems={HEADER_MENU_ITEMS} client:load />
+
+    <nav class="hidden sm:block" aria-label="グローバルメニュー">
+      <ul class="flex items-center">
+        {
+          HEADER_MENU_ITEMS.map((item) => (
+            <li>
+              <a href={item.href} class="block rounded-sm px-3 py-1 text-sm text-zinc-800 hover:bg-zinc-50">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
-
-  <HamburgerMenu menuItems={menuItems} client:load />
-
-  <nav class="hidden sm:block" aria-label="グローバルメニュー">
-    <ul class="flex items-center">
-      {
-        menuItems.map((item) => (
-          <li>
-            <a href={item.href} class="block rounded-sm px-3 py-1 text-sm text-zinc-800 hover:bg-zinc-50">
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
 </header>
