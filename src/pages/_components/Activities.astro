@@ -1,1 +1,48 @@
-<div>活動内容 プログラミング DTM グラフィック</div>
+---
+import ActivityCard from "./ActivityCard.astro";
+---
+
+<section>
+  <h2 class="my-2 text-3xl font-bold">活動内容</h2>
+  <ActivityCard
+    id="about-programming"
+    title="プログラミング"
+    description="プログラムでアイデアを形にしよう。"
+    examples="ゲーム制作、競技プログラミング、Web開発など"
+    bgColorClass="bg-sky-50"
+    textColorClass="text-blue-600"
+    focusRingColorClass="focus-visible:ring-blue-600"
+    href="/"
+  />
+  <ActivityCard
+    id="about-dtm"
+    title="DTM"
+    description="あなたの音楽で感動を届けよう。\n発表会でみんなに共有しよう。"
+    examples="作曲など"
+    bgColorClass="bg-purple-50"
+    textColorClass="text-indigo-400"
+    focusRingColorClass="focus-visible:ring-indigo-400"
+    href="/"
+  />
+  <ActivityCard
+    id="about-graphic"
+    title="グラフィック"
+    description="デザインでアイデアを表現しよう。"
+    examples="イラスト、3DCGなど"
+    bgColorClass="bg-rose-50"
+    textColorClass="text-fuchsia-500"
+    focusRingColorClass="focus-visible:ring-fuchsia-500"
+    href="/"
+  />
+  <div class="my-2">
+    <p>各メンバーが多種多様な創作活動を行っています。</p>
+    <p>これ以外にも、あなたが興味を持った活動ができます！</p>
+  </div>
+
+  <a
+    href="/"
+    class="my-2 inline-flex rounded-full bg-fuchsia-500 px-6 py-3 shadow-md/50 transition-transform duration-100 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500 focus-visible:ring-offset-2 active:translate-y-0.5"
+  >
+    <span class="text-base font-bold text-white">活動内容をもっと見る <span aria-hidden="true">&rarr;</span></span>
+  </a>
+</section>
