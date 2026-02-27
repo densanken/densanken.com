@@ -3,6 +3,8 @@ export type HeaderMenuItem = {
   label: string;
 };
 
+export const HEADER_TITLE = "CCS";
+
 export const HEADER_MENU_ITEMS: HeaderMenuItem[] = [
   { label: "ホーム", href: "/" },
   { label: "活動内容", href: "/activities" },
