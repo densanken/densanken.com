@@ -9,25 +9,17 @@ type Props = {
 
 export default function HamburgerMenu({ menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const menuId = "mobile-menu";
-
-  const menuButtonLabel = isOpen ? "メニューを閉じる" : "メニューを開く";
-  const menuContainerClasses = [
-    "fixed top-[var(--header-height)] right-0 left-0 z-10 origin-top-right rounded-b-xl border border-zinc-200 bg-white/95 shadow-lg backdrop-blur-sm transition-all duration-200 ease-out",
-    isOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-1 scale-95 opacity-0",
-  ].join(" ");
-
-  const toggleMenu = () => { setIsOpen((prev) => !prev); };
-  const closeMenu = () => { setIsOpen(false); };
 
   return (
-    <div className="flex items-center self-stretch md:hidden">
+    <div className="relative md:hidden">
       <button
-        aria-controls={menuId}
+        aria-controls="mobile-menu"
         aria-expanded={isOpen}
-        aria-label={menuButtonLabel}
-        className="relative z-20 inline-flex h-full w-8 cursor-pointer items-center justify-center leading-none text-zinc-700"
-        onClick={toggleMenu}
+        aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+        className="relative z-20 inline-flex h-8 w-8 cursor-pointer items-center justify-center leading-none text-zinc-700"
+        onClick={() => {
+          setIsOpen((prev) => !prev);
+        }}
         type="button"
       >
         <span className="sr-only">メニューを開く</span>
@@ -47,14 +39,22 @@ export default function HamburgerMenu({ menuItems }: Props) {
         </span>
       </button>
 
-      <nav aria-label="グローバルメニュー" className={menuContainerClasses} id={menuId}>
+      <nav
+        aria-label="グローバルメニュー"
+        className={`fixed top-12 right-0 left-0 z-10 origin-top-right rounded-b-xl border border-zinc-200 bg-white/95 shadow-lg backdrop-blur-sm transition-all duration-200 ease-out ${
+          isOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-1 scale-95 opacity-0"
+        }`}
+        id="mobile-menu"
+      >
         <ul className="grid p-2">
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
                 className="block border-b border-zinc-300/30 px-3 py-3 text-center text-base font-thin text-zinc-700 hover:border-zinc-300"
                 href={item.href}
-                onClick={closeMenu}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
               >
                 {item.label}
               </a>
