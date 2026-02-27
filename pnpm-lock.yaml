@@ -10,21 +10,19 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: ^4.0.0
-        version: 4.4.2(@types/node@25.0.3)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(yaml@2.7.0)
+        version: 4.4.2(@types/node@25.0.3)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.31.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(yaml@2.7.0)
       '@lucide/astro':
         specifier: ^0.574.0
-        version: 0.574.0(astro@5.17.2(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0))
-        version: 4.4.2(@types/node@25.0.3)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.31.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(yaml@2.7.0)
+        version: 0.574.0(astro@5.17.3(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0))
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.2.1(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(yaml@2.7.0))
       astro:
         specifier: ^5.0.0
-        version: 5.17.2(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0)
+        version: 5.17.3(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0)
       lucide-react:
         specifier: ^0.574.0
         version: 0.574.0(react@19.2.4)
-        version: 5.17.3(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0)
       react:
         specifier: ^19.0.0
         version: 19.2.4
@@ -183,11 +181,6 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/parser@7.28.6':
-    resolution: {integrity: sha512-TeR9zWR18BvbfPmGbLampPMW+uW1NZnJlRuuHso8i87QZNq2JRF9i6RgxRqtEq+wQGsS19NNTWr2duhnE49mfQ==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
   '@babel/parser@7.29.0':
     resolution: {integrity: sha512-IyDgFV5GeDUVX4YdF/3CPULtVGSXXMLh1xVIgdCgxApktqnQV0r7/8Nqthg+8YLGaAtdyIlo2qIdZrbCv4+7ww==}
     engines: {node: '>=6.0.0'}
@@ -215,10 +208,6 @@ packages:
 
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.28.6':
-    resolution: {integrity: sha512-0ZrskXVEHSWIqZM/sQZ4EV3jZJXRkio/WCxaqKZP1g//CEWEPSfeZFcms4XeKBCHU0ZKnIkdJeU/kF+eRp5lBg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.29.0':
@@ -3887,10 +3876,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.28.5
 
-  '@babel/parser@7.28.6':
-    dependencies:
-      '@babel/types': 7.28.6
-
   '@babel/parser@7.29.0':
     dependencies:
       '@babel/types': 7.29.0
@@ -3924,11 +3909,6 @@ snapshots:
       - supports-color
 
   '@babel/types@7.28.5':
-    dependencies:
-      '@babel/helper-string-parser': 7.27.1
-      '@babel/helper-validator-identifier': 7.28.5
-
-  '@babel/types@7.28.6':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
@@ -4286,9 +4266,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/astro@0.574.0(astro@5.17.2(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0))':
+  '@lucide/astro@0.574.0(astro@5.17.3(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0))':
     dependencies:
-      astro: 5.17.2(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0)
+      astro: 5.17.3(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.7.0)
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
@@ -4508,24 +4488,24 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.28.6
-      '@babel/types': 7.28.6
+      '@babel/parser': 7.29.0
+      '@babel/types': 7.29.0
       '@types/babel__generator': 7.6.8
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.6
 
   '@types/babel__generator@7.6.8':
     dependencies:
-      '@babel/types': 7.28.6
+      '@babel/types': 7.29.0
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.28.6
-      '@babel/types': 7.28.6
+      '@babel/parser': 7.29.0
+      '@babel/types': 7.29.0
 
   '@types/babel__traverse@7.20.6':
     dependencies:
-      '@babel/types': 7.28.6
+      '@babel/types': 7.29.0
 
   '@types/debug@4.1.12':
     dependencies:
