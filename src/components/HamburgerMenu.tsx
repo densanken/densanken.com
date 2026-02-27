@@ -11,12 +11,12 @@ export default function HamburgerMenu({ menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative md:hidden">
+    <div className="relative flex h-full items-center md:hidden">
       <button
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
-        className="relative z-20 inline-flex h-8 w-8 cursor-pointer items-center justify-center leading-none text-zinc-700"
+        className="relative z-20 inline-flex h-full w-8 cursor-pointer items-center justify-center leading-none text-zinc-700"
         onClick={() => {
           setIsOpen((prev) => !prev);
         }}
