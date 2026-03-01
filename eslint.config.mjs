@@ -70,12 +70,6 @@ export default [
       "import/consistent-type-specifier-style": "error",
       "import/newline-after-import": "error",
       "import/no-duplicates": "error",
-      "import/no-unresolved": [
-        "error",
-        {
-          ignore: ["^astro:"],
-        },
-      ],
       "import/order": [
         "error",
         {
