@@ -1,0 +1,23 @@
+---
+import type { HeaderMenuItem } from "./headerMenuItems";
+
+interface Props {
+  items: HeaderMenuItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="hidden md:block" aria-label="グローバルメニュー">
+  <ul class="flex items-center">
+    {
+      items.map((item) => (
+        <li>
+          <a href={item.href} class="block rounded-sm px-3 py-1 text-sm font-thin text-zinc-700 hover:bg-transparent">
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
