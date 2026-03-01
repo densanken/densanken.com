@@ -22,7 +22,9 @@ export function HamburgerMenu({ menuItems }: Props) {
         }}
         type="button"
       >
-        <span className="sr-only">メニューを開く</span>
+        <span className="sr-only">
+          {isOpen ? "メニューを閉じる" : "メニューを開く"}
+        </span>
         <span
           className={`absolute inset-0 inline-flex items-center justify-center transition-all duration-200 ${
             isOpen ? "scale-75 rotate-90 opacity-0" : "scale-100 rotate-0 opacity-100"
