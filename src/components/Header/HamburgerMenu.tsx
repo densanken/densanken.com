@@ -7,7 +7,7 @@ type Props = {
   menuItems: HeaderMenuItem[];
 };
 
-export default function HamburgerMenu({ menuItems }: Props) {
+export function HamburgerMenu({ menuItems }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
