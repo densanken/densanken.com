@@ -6,9 +6,10 @@ import Header from "../components/Header/index.astro";
 interface Props {
   title: string;
   description?: string;
+  class?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, class: className } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,7 +28,7 @@ const { title, description } = Astro.props;
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />
-    <main class="flex-1">
+    <main class:list={["flex-1", className]}>
       <slot />
     </main>
     <Footer />
