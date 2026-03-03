@@ -4,12 +4,34 @@ import CatchCopy from "./_components/CatchCopy.astro";
 import Join from "./_components/Join.astro";
 import Location from "./_components/Location.astro";
 import News from "./_components/News.astro";
+import NewsContent from "./_components/NewsContent.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to CCS!">
   <CatchCopy />
-  <News />
+  <News>
+    <NewsContent
+      href="link/to/news/page"
+      title="本年もどうぞよろしくお願い申し上げます"
+      date={new Date("2026-01-01")}
+      description="旧年中は大変お世話になり誠にありがとうございました"
+    />
+    <NewsContent
+      href="link/to/news/page"
+      title="本年もどうぞよろしくお願い申し上げます"
+      date={new Date("2026-01-01")}
+      description="旧年中は大変お世話になり誠にありがとうございました"
+      badges={["活動"]}
+    />
+    <NewsContent
+      href="link/to/news/page"
+      title="本年もどうぞよろしくお願い申し上げます"
+      date={new Date("2026-01-01")}
+      description="旧年中は大変お世話になり誠にありがとうございました"
+      badges={["活動", "新年のご挨拶"]}
+    />
+  </News>
   <Activities />
   <Location />
   <Join />

@@ -1,1 +1,11 @@
-<div>News</div>
+---
+import Button from "../../components/Button.astro";
+---
+
+<section class="px-5 py-2">
+  <h2 class="mb-3 ml-4 text-xl font-bold">News</h2>
+  <slot />
+  <Button class="mb-7 ml-4 bg-purple-600 text-white" href="/news"
+    >すべてのNewsを見る<span aria-hidden="true">&rarr;</span></Button
+  >
+</section>
