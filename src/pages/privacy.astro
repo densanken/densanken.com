@@ -8,21 +8,21 @@ import Layout from "../layouts/Layout.astro";
   class="mx-6 md:mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2"
 >
   <h1 class="my-4 text-2xl font-bold md:my-8 md:text-3xl lg:mt-16">プライバシーポリシー</h1>
-  <div class="my-4 md:my-8">
+  <div>
     <p>
       このサイトでは利用状況を分析するために Google アナリティクス および Cloudflare Web Analytics を使用しています。
     </p>
   </div>
-  <div class="my-4 md:my-8">
+  <div>
     <p>Google アナリティクス は Cookie を使用して当サイトへのアクセス情報を Google に送信しています。</p>
     <p>Cloudflare Web Analytics は JavaScript ビーコンを使用してパフォーマンス指標等を Cloudflare に送信しています。</p>
   </div>
-  <div class="my-4 md:my-8">
+  <div>
     <p>
       これらのツールを通じて取得したデータは本サイト改善の目的に限って利用します。氏名、住所、電話番号、メールアドレス等の個人を直接特定する情報を取得することはありません。
     </p>
   </div>
-  <div class="my-4 md:my-8">
+  <div>
     <p>
       Google アナリティクス の規約の詳細に関しましては「<a
         href="https://marketingplatform.google.com/about/analytics/terms/jp/"
@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
       >」をご覧ください。
     </p>
   </div>
-  <div class="my-4 md:my-8">
+  <div>
     <p>
       Cloudflare による情報の取扱いの詳細については「<a
         href="https://www.cloudflare.com/ja-jp/privacypolicy/"
@@ -50,7 +50,13 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+  @reference "../styles/global.css";
+
   a {
-    @apply underline;
+    @apply underline transition-colors hover:text-blue-600;
+  }
+
+  div {
+    @apply my-4 md:my-8;
   }
 </style>
