@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import GitHubLogo from "../assets/GitHubLogo.svg";
+import InstagramLogo from "../assets/InstagramLogo.svg";
 import XLogo from "../assets/XLogo.svg";
 
 const footerMenuItems = [
@@ -38,6 +39,16 @@ const year = new Date().getFullYear();
         >
           <Image src={XLogo} alt="" width={28} height={28} />
           <span>@densanken</span>
+        </a>
+        <a
+          href="https://www.instagram.com/ccs_densanken"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2"
+          aria-label="Instagram でんさんけん（新しいタブで開きます）"
+        >
+          <Image src={InstagramLogo} alt="" width={28} height={28} />
+          <span>@ccs_densanken</span>
         </a>
         <a
           href="https://github.com/densanken"
