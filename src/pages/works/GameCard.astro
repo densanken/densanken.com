@@ -1,0 +1,42 @@
+---
+import type { GameData } from "./games.ts";
+
+interface Props {
+  gameData: GameData;
+}
+
+const { gameData } = Astro.props;
+---
+
+<div class="flex items-center justify-center">
+  <div
+    class="group flex aspect-square w-full flex-col overflow-hidden rounded-lg border border-black bg-white p-2 shadow-lg sm:w-3xs"
+  >
+    <div class="relative flex h-[56.25%] w-full items-center justify-center overflow-hidden bg-gray-100">
+      {
+        gameData.imageSrc ? (
+          <img src={gameData.imageSrc} alt={gameData.title} class="h-full w-full object-contain" />
+        ) : (
+          <span class="text-sm font-bold text-gray-400">NO IMAGE</span>
+        )
+      }
+    </div>
+    <div class="flex h-[43.75%] flex-col justify-between p-2">
+      <div>
+        <p class="line-clamp-1 font-bold">
+          {gameData.title}
+        </p>
+        <p class="line-clamp-2 text-xs">
+          {gameData.description}
+        </p>
+      </div>
+
+      <a
+        href={gameData.detailHref}
+        class="inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-1 text-sm text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+      >
+        wikiを見る
+      </a>
+    </div>
+  </div>
+</div>
