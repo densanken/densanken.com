@@ -1,0 +1,38 @@
+---
+import GameCard from "./_components/GameCard.astro";
+import NextPrevButton from "./_components/NextPrevButton.astro";
+import { games } from "./_components/games.ts";
+import Layout from "../../layouts/Layout.astro";
+
+import type { PaginateFunction } from "astro";
+
+const uniqueYears = [...new Set(games.map((game) => game.year))];
+
+export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  return paginate(games, { pageSize: 8 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="作品紹介">
+  <section class="m-auto w-[80%]">
+    <h2 class="my-4 text-2xl font-bold md:text-3xl">作品集</h2>
+    <div class="my-4 flex gap-3 overflow-x-scroll py-2">
+      {
+        uniqueYears.map((year) => (
+          <a
+            href={`/works/${year}`}
+            class="rounded-full bg-gray-200 px-4 py-2 text-base whitespace-nowrap hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2"
+          >
+            {year}年
+          </a>
+        ))
+      }
+    </div>
+    <div class="my-4 grid grid-cols-2 gap-4 px-2 md:grid-cols-3 lg:grid-cols-4">
+      {page.data.map((game) => <GameCard gameData={game} />)}
+    </div>
+    <NextPrevButton prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+</Layout>

@@ -1,0 +1,44 @@
+---
+const baseButton = "aspect-square px-4 flex justify-center items-center rounded-full";
+const enabledButton =
+  "bg-slate-800  hover:bg-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-800 shadow-md";
+const disabledButton = "bg-slate-400/80 cursor-not-allowed";
+const enabledText = "text-white text-3xl font-bold";
+const disabledText = "text-gray-300 text-3xl font-bold";
+
+const { prevUrl, nextUrl, parentUrl } = Astro.props;
+---
+
+<div class="my-8 flex justify-between">
+  {
+    prevUrl ? (
+      <a href={prevUrl} class={`${baseButton} ${enabledButton}`} aria-label="前のページへ">
+        <span class={enabledText}>&larr;</span>
+      </a>
+    ) : (
+      <span class={`${baseButton} ${disabledButton}`}>
+        <span class={disabledText}>&larr;</span>
+      </span>
+    )
+  }
+
+  {
+    parentUrl && (
+      <a href={parentUrl} class={`${baseButton} ${enabledButton}`} aria-label="一覧に戻る">
+        <span class={enabledText}>&uarr;</span>
+      </a>
+    )
+  }
+
+  {
+    nextUrl ? (
+      <a href={nextUrl} class={`${baseButton} ${enabledButton}`} aria-label="次のページへ">
+        <span class={enabledText}>&rarr;</span>
+      </a>
+    ) : (
+      <span class={`${baseButton} ${disabledButton}`}>
+        <span class={disabledText}>&rarr;</span>
+      </span>
+    )
+  }
+</div>
