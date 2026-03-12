@@ -52,12 +52,15 @@ import Button from "../../components/Button.astro";
     </p>
 
     <div class="mt-6 flex flex-col items-start gap-4 md:flex-row">
-      <Button href="/activities" class="border-2 border-blue-500 bg-blue-500 text-white focus-visible:ring-blue-500">
+      <Button
+        href="/activities"
+        class="border-2 border-blue-500 bg-blue-500 text-white shadow-blue-500/50 focus-visible:ring-blue-500"
+      >
         <span>活動内容を見る<span aria-hidden="true">&rarr;</span></span>
       </Button>
       <Button
-        href="/join"
-        class="border-2 border-blue-500 bg-white text-blue-500 transition-colors focus-visible:ring-blue-500"
+        href="/contact#join"
+        class="border-2 border-blue-500 bg-white text-blue-500 shadow-blue-500/50 transition-colors focus-visible:ring-blue-500"
       >
         <span>入会する<span aria-hidden="true">&rarr;</span></span>
       </Button>
