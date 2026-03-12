@@ -10,29 +10,31 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Welcome to CCS!">
   <CatchCopy />
-  <News>
-    <NewsContent
-      href="link/to/news/page"
-      title="本年もどうぞよろしくお願い申し上げます"
-      date={new Date("2026-01-01")}
-      description="旧年中は大変お世話になり誠にありがとうございました"
-    />
-    <NewsContent
-      href="link/to/news/page"
-      title="本年もどうぞよろしくお願い申し上げます"
-      date={new Date("2026-01-01")}
-      description="旧年中は大変お世話になり誠にありがとうございました"
-      badges={["活動"]}
-    />
-    <NewsContent
-      href="link/to/news/page"
-      title="本年もどうぞよろしくお願い申し上げます"
-      date={new Date("2026-01-01")}
-      description="旧年中は大変お世話になり誠にありがとうございました"
-      badges={["活動", "新年のご挨拶"]}
-    />
-  </News>
-  <Activities />
-  <Location />
-  <Join />
+  <div class="mx-5 my-4 flex flex-col gap-8 md:mx-auto md:w-4/5 xl:w-2/3 2xl:w-1/2">
+    <News>
+      <NewsContent
+        href="link/to/news/page"
+        title="本年もどうぞよろしくお願い申し上げます"
+        date={new Date("2026-01-01")}
+        description="旧年中は大変お世話になり誠にありがとうございました"
+      />
+      <NewsContent
+        href="link/to/news/page"
+        title="本年もどうぞよろしくお願い申し上げます"
+        date={new Date("2026-01-01")}
+        description="旧年中は大変お世話になり誠にありがとうございました"
+        badges={["活動"]}
+      />
+      <NewsContent
+        href="link/to/news/page"
+        title="本年もどうぞよろしくお願い申し上げます"
+        date={new Date("2026-01-01")}
+        description="旧年中は大変お世話になり誠にありがとうございました"
+        badges={["活動", "新年のご挨拶"]}
+      />
+    </News>
+    <Activities />
+    <Location />
+    <Join />
+  </div>
 </Layout>

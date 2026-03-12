@@ -1,37 +1,37 @@
 ---
 import ActivityCard from "./ActivityCard.astro";
+import Button from "../../components/Button.astro";
 ---
 
 <section>
-  <h2 class="my-2 text-3xl font-bold">活動内容</h2>
-  <ActivityCard
-    title="プログラミング"
-    description="プログラムでアイデアを形にしよう。"
-    activityExamplesText="ゲーム制作、競技プログラミング、Web開発など"
-    class="bg-sky-100 text-blue-600"
-  />
-  <ActivityCard
-    title="DTM"
-    description={"あなたの音楽で感動を届けよう。\n発表会でみんなに共有しよう。"}
-    activityExamplesText="作曲など"
-    class="bg-purple-100 text-violet-500"
-  />
-  <ActivityCard
-    title="グラフィック"
-    description="デザインでアイデアを表現しよう。"
-    activityExamplesText="イラスト、3DCGなど"
-    class="bg-pink-100 text-fuchsia-500"
-  />
+  <h2 class="my-2 text-2xl font-bold md:mb-4 md:text-3xl">活動内容</h2>
+  <div class="flex flex-col gap-4">
+    <ActivityCard
+      title="プログラミング"
+      description="プログラムでアイデアを形にしよう。"
+      activityExamplesText="ゲーム制作、競技プログラミング、Web開発など"
+      class="bg-indigo-100/70 text-blue-600 shadow-blue-600/50"
+    />
+    <ActivityCard
+      title="DTM"
+      description={"あなたの音楽で感動を届けよう。\n発表会でみんなに共有しよう。"}
+      activityExamplesText="作曲など"
+      class="bg-purple-100/80 text-violet-500 shadow-violet-500/50"
+    />
+    <ActivityCard
+      title="グラフィック"
+      description="デザインでアイデアを表現しよう。"
+      activityExamplesText="イラスト、3DCGなど"
+      class="bg-rose-100/80 text-pink-500 shadow-pink-500/50"
+    />
+  </div>
 
-  <div class="my-2">
+  <div class="mt-6 mb-2">
     <p>各メンバーが多種多様な創作活動を行っています。</p>
     <p>これ以外にも、あなたが興味を持った活動ができます！</p>
   </div>
 
-  <a
-    href="/"
-    class="my-2 inline-flex rounded-full bg-pink-600/90 px-6 py-3 shadow-md/50 transition-transform duration-100 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-600/90 focus-visible:ring-offset-2 active:translate-y-0.5"
-  >
-    <span class="text-base font-bold text-white">活動内容をもっと見る <span aria-hidden="true">&rarr;</span></span>
-  </a>
+  <Button href="/activities" class="mt-6 bg-pink-600/90 text-white shadow-pink-600/50 focus-visible:ring-pink-600/90">
+    <span>活動内容をもっと見る <span aria-hidden="true">&rarr;</span></span>
+  </Button>
 </section>

@@ -2,10 +2,10 @@
 import Button from "../../components/Button.astro";
 ---
 
-<section class="px-5 py-2">
-  <h2 class="mb-3 ml-4 text-xl font-bold">News</h2>
+<section>
+  <h2 class="my-2 text-2xl font-bold md:mb-4 md:text-3xl">News</h2>
   <slot />
-  <Button class="mb-7 ml-4 bg-purple-600 text-white" href="/news"
+  <Button class="mt-6 bg-purple-600 text-white shadow-purple-600/50 focus-visible:ring-purple-600" href="/news"
     >すべてのNewsを見る<span aria-hidden="true">&rarr;</span></Button
   >
 </section>
