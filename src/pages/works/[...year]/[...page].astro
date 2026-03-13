@@ -8,9 +8,8 @@ import type { PaginateFunction } from "astro";
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   const uniqueYears = [...new Set(games.map((game) => game.year))];
-  const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
-  return sortedUniqueYears.flatMap((year) => {
+  return uniqueYears.flatMap((year) => {
     const filteredGames = games.filter((game) => game.year == year);
     return paginate(filteredGames, {
       params: { year: year.toString() },
@@ -23,10 +22,10 @@ const { year } = Astro.params;
 const { page } = Astro.props;
 ---
 
-<Layout title="作品紹介">
+<Layout title="作品紹介" class="max-w-container">
   <section class="m-auto w-[80%]">
     <h2 class="my-4 text-2xl font-bold md:text-3xl">{year}年 作品集</h2>
-    <div class="my-4 grid grid-cols-2 gap-4 px-2 md:grid-cols-3 lg:grid-cols-4">
+    <div class="my-4 grid grid-cols-1 gap-4 px-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {page.data.map((game) => <GameCard gameData={game} isDisplayYear={false} />)}
     </div>
     <NextPrevButton page={page} />

@@ -7,6 +7,7 @@ import Layout from "../../layouts/Layout.astro";
 import type { PaginateFunction } from "astro";
 
 const uniqueYears = [...new Set(games.map((game) => game.year))];
+const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   return paginate(games, { pageSize: 8 });
@@ -15,22 +16,22 @@ export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
 const { page } = Astro.props;
 ---
 
-<Layout title="作品紹介">
+<Layout title="作品紹介" class="max-w-container">
   <section class="m-auto w-[80%]">
     <h2 class="my-4 text-2xl font-bold md:text-3xl">作品集</h2>
-    <div class="my-4 flex gap-3 overflow-x-scroll py-2">
+    <div class="my-4 flex flex-wrap gap-3 py-2">
       {
-        uniqueYears.map((year) => (
+        sortedUniqueYears.map((year) => (
           <a
             href={`/works/${year}`}
-            class="rounded-full bg-gray-200 px-4 py-2 text-base whitespace-nowrap hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 focus-visible:ring-offset-2"
+            class="rounded-full bg-purple-500 px-4 py-2 text-base text-white shadow-md hover:bg-purple-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-700 focus-visible:ring-offset-2"
           >
             {year}年
           </a>
         ))
       }
     </div>
-    <div class="my-4 grid grid-cols-2 gap-4 px-2 md:grid-cols-3 lg:grid-cols-4">
+    <div class="my-4 grid grid-cols-1 gap-4 px-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {page.data.map((game) => <GameCard gameData={game} isDisplayYear={true} />)}
     </div>
     <NextPrevButton page={page} />
