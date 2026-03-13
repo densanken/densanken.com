@@ -6,6 +6,7 @@ import type { ImageMetadata } from "astro";
 
 interface Props {
   gameData: GameData;
+  isDisplayYear: boolean;
 }
 
 const matchedImages = import.meta.glob<{ default: ImageMetadata }>("../assets/*", { eager: true });
@@ -15,7 +16,7 @@ for (const [key, value] of Object.entries(matchedImages)) {
   images[fileName] = value.default;
 }
 
-const { gameData } = Astro.props;
+const { gameData, isDisplayYear } = Astro.props;
 ---
 
 <div id={gameData.id} class="flex items-center justify-center">
@@ -30,6 +31,8 @@ const { gameData } = Astro.props;
           <span class="text-sm font-bold text-gray-400">NO IMAGE</span>
         )
       }
+
+      {isDisplayYear && <span class="absolute top-2 left-2 rounded-full bg-white px-2 py-1">{gameData.year}</span>}
     </div>
     <div class="flex h-[43.75%] flex-col justify-between p-2">
       <div>
@@ -41,14 +44,14 @@ const { gameData } = Astro.props;
         </p>
       </div>
       {
-        gameData.detailHref && (
+        gameData.atwikiUrl && (
           <a
-            href={gameData.detailHref}
+            href={gameData.atwikiUrl}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-1 text-xs text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
-            wikiを見る
+            &#8599;@wiki
           </a>
         )
       }

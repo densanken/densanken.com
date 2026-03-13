@@ -1,44 +1,162 @@
 ---
-const baseButton = "aspect-square px-4 flex justify-center items-center rounded-full";
+const baseButton = "w-16 h-16 aspect-square flex justify-center items-center rounded-full";
 const enabledButton =
-  "bg-slate-800  hover:bg-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-800 shadow-md";
-const disabledButton = "bg-slate-400/80 cursor-not-allowed";
+  "bg-blue-500  hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 shadow-md";
 const enabledText = "text-white text-3xl font-bold";
-const disabledText = "text-gray-300 text-3xl font-bold";
+const disabledText = "text-blue-500 text-3xl font-bold";
 
-const { prevUrl, nextUrl, parentUrl } = Astro.props;
+interface Props<T = any> {
+  page: {
+    /** array containing the page’s slice of data that you passed to the paginate() function */
+    data: T[];
+    /** metadata */
+    /** the count of the first item on the page, starting from 0 */
+    start: number;
+    /** the count of the last item on the page, starting from 0 */
+    end: number;
+    /** total number of results */
+    total: number;
+    /** the current page number, starting from 1 */
+    currentPage: number;
+    /** number of items per page (default: 10) */
+    size: number;
+    /** number of last page */
+    lastPage: number;
+    url: {
+      /** url of the current page */
+      current: string;
+      /** url of the previous page (if there is one) */
+      prev: string | undefined;
+      /** url of the next page (if there is one) */
+      next: string | undefined;
+      /** url of the first page (if the current page is not the first page) */
+      first: string | undefined;
+      /** url of the last page (if the current page in not the last page) */
+      last: string | undefined;
+    };
+  };
+}
+
+interface FooterButtons {
+  first?: string;
+  formerOmission?: "…";
+  former: string[];
+  current: string;
+  latter: string[];
+  latterOmission?: "…";
+  last?: string;
+}
+
+function getFooterButtons(currentPage: number, lastPage: number) {
+  const delta = 1;
+
+  const buttons: FooterButtons = {
+    former: [],
+    current: currentPage.toString(),
+    latter: [],
+  };
+
+  // ページ数が1ページなら即リターン
+  if (lastPage < 2) return buttons;
+
+  // 現在ページが1ページじゃなければ端に1を表示
+  if (currentPage > 1) buttons.first = "1";
+
+  const startPos = Math.max(2, currentPage - delta);
+  const finishPos = Math.min(lastPage, currentPage + delta);
+
+  // 先頭ページまで距離があれば省略記号配置
+  if (startPos > 1 + delta) buttons.formerOmission = "…";
+
+  // 前方向に隣接したページを現在のページ分まで取得
+  for (let i = startPos; i < currentPage; i++) {
+    buttons.former.push(i.toString());
+  }
+
+  // 後ろ方向に隣接したページを現在のページ分まで取得
+  for (let i = currentPage + 1; i <= finishPos; i++) {
+    buttons.latter.push(i.toString());
+  }
+
+  // 最終ページまで距離があれば省略記号配置
+  if (finishPos < lastPage - delta) buttons.latterOmission = "…";
+
+  // 最後ページが表示範囲になければ端に最終ページ番号表示
+  if (currentPage < lastPage - delta) buttons.last = lastPage.toString();
+
+  return buttons;
+}
+
+const { page } = Astro.props;
+const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
 ---
 
 <div class="my-8 flex justify-between">
   {
-    prevUrl ? (
-      <a href={prevUrl} class={`${baseButton} ${enabledButton}`} aria-label="前のページへ">
-        <span class={enabledText}>&larr;</span>
-      </a>
-    ) : (
-      <span class={`${baseButton} ${disabledButton}`}>
-        <span class={disabledText}>&larr;</span>
-      </span>
-    )
-  }
-
-  {
-    parentUrl && (
-      <a href={parentUrl} class={`${baseButton} ${enabledButton}`} aria-label="一覧に戻る">
-        <span class={enabledText}>&uarr;</span>
+    page.currentPage != 1 && page.url.prev && (
+      <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="次のページへ">
+        <span class:list={[enabledText]}>&larr;</span>
       </a>
     )
   }
 
   {
-    nextUrl ? (
-      <a href={nextUrl} class={`${baseButton} ${enabledButton}`} aria-label="次のページへ">
-        <span class={enabledText}>&rarr;</span>
+    footerButtons.first && (
+      <a href={page.url.first} class:list={[baseButton, enabledButton]} aria-label="先頭ページへ">
+        <span class:list={[enabledText]}>1</span>
       </a>
-    ) : (
-      <span class={`${baseButton} ${disabledButton}`}>
-        <span class={disabledText}>&rarr;</span>
-      </span>
+    )
+  }
+
+  {
+    footerButtons.formerOmission && (
+      <div class:list={[baseButton]}>
+        <span class:list={[disabledText]}>{footerButtons.formerOmission}</span>
+      </div>
+    )
+  }
+
+  {
+    footerButtons.former.map((n) => (
+      <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label={n}>
+        <span class:list={[enabledText]}>{n}</span>
+      </a>
+    ))
+  }
+
+  <div class:list={[baseButton]}>
+    <span class:list={[disabledText]}>{footerButtons.current}</span>
+  </div>
+
+  {
+    footerButtons.latter.map((n) => (
+      <a href={page.url.next} class:list={[baseButton, enabledButton]} aria-label={n}>
+        <span class:list={[enabledText]}>{n}</span>
+      </a>
+    ))
+  }
+
+  {
+    footerButtons.latterOmission && (
+      <div class:list={[baseButton]}>
+        <span class:list={[disabledText]}>{footerButtons.latterOmission}</span>
+      </div>
+    )
+  }
+
+  {
+    footerButtons.last && (
+      <a href={page.url.last} class:list={[baseButton, enabledButton]} aria-label="先頭ページへ">
+        <span class:list={[enabledText]}>{page.lastPage}</span>
+      </a>
+    )
+  }
+
+  {
+    page.currentPage != page.lastPage && page.url.next && (
+      <a href={page.url.next} class:list={[baseButton, enabledButton]} aria-label="次のページへ">
+        <span class:list={[enabledText]}>&rarr;</span>
+      </a>
     )
   }
 </div>

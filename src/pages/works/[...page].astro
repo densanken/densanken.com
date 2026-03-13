@@ -31,8 +31,8 @@ const { page } = Astro.props;
       }
     </div>
     <div class="my-4 grid grid-cols-2 gap-4 px-2 md:grid-cols-3 lg:grid-cols-4">
-      {page.data.map((game) => <GameCard gameData={game} />)}
+      {page.data.map((game) => <GameCard gameData={game} isDisplayYear={true} />)}
     </div>
-    <NextPrevButton prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <NextPrevButton page={page} />
   </section>
 </Layout>
