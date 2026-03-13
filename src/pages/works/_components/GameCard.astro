@@ -25,7 +25,7 @@ const { gameData, isDisplayYear } = Astro.props;
   >
     <div class="relative flex h-[56.25%] w-full items-center justify-center overflow-hidden bg-gray-100">
       {
-        gameData.imageSrc ? (
+        gameData.imageSrc && images[gameData.imageSrc] ? (
           <Image src={images[gameData.imageSrc]} alt={gameData.title} class="h-full w-full object-contain" />
         ) : (
           <span class="text-sm font-bold text-gray-400">NO IMAGE</span>

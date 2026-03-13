@@ -1,7 +1,7 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import GameCard from "../_components/GameCard.astro";
 import NextPrevButton from "../_components/NextPrevButton.astro";
+import WorksGrid from "../_components/WorksGrid.astro";
+import WorksLayout from "../_components/WorksLayout.astro";
 import { games } from "../_components/games.ts";
 
 import type { PaginateFunction } from "astro";
@@ -22,21 +22,16 @@ const { year } = Astro.params;
 const { page } = Astro.props;
 ---
 
-<Layout title="作品紹介" class="max-w-container">
-  <section class="m-auto w-[80%]">
-    <h2 class="my-4 text-2xl font-bold md:text-3xl">{year}年 作品集</h2>
-    <div class="my-4 grid grid-cols-1 gap-4 px-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {page.data.map((game) => <GameCard gameData={game} isDisplayYear={false} />)}
-    </div>
-    <NextPrevButton page={page} />
-    <div class="flex items-center justify-center">
-      <a
-        href="/works"
-        aria-label="作品一覧に戻る"
-        class="rounded-full bg-pink-500 px-8 py-4 shadow-md hover:bg-pink-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
-      >
-        <span class="text-base font-bold text-white"> 作品一覧に戻る </span>
-      </a>
-    </div>
-  </section>
-</Layout>
+<WorksLayout title=`${year}年 作品紹介`>
+  <WorksGrid games={page.data} isDisplayYear={false} />
+  <NextPrevButton page={page} />
+  <div class="flex items-center justify-center">
+    <a
+      href="/works"
+      aria-label="作品一覧に戻る"
+      class="rounded-full bg-pink-500 px-8 py-4 shadow-md hover:bg-pink-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
+    >
+      <span class="text-base font-bold text-white"> 作品一覧に戻る </span>
+    </a>
+  </div>
+</WorksLayout>

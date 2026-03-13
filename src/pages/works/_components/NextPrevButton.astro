@@ -95,21 +95,21 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
 <div class="my-8 flex justify-between">
   {
     page.currentPage != 1 && page.url.prev ? (
-      <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="次のページへ">
+      <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="前のページへ">
         <span class:list={[enabledText]}>&larr;</span>
       </a>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 
   {
     footerButtons.first ? (
-      <a href={page.url.first} class:list={[baseButton, enabledButton]} aria-label="先頭ページへ">
+      <a href={page.url.first} class:list={[baseButton, enabledButton]} aria-label="先頭のページへ">
         <span class:list={[enabledText]}>1</span>
       </a>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 
@@ -119,7 +119,7 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
         <span class:list={[disabledText]}>{footerButtons.formerOmission}</span>
       </div>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 
@@ -130,14 +130,18 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
           <span class:list={[enabledText]}>{footerButtons.former[i]}</span>
         </a>
       ) : (
-        <span />
+        <span class:list={[baseButton]} />
       )
     )
   }
 
-  <div class:list={[baseButton]}>
-    <span class:list={[disabledText]}>{footerButtons.current}</span>
-  </div>
+  <span
+    class:list={[baseButton, disabledText]}
+    aria-current="page"
+    aria-label={`現在のページ ${footerButtons.current}`}
+  >
+    {footerButtons.current}
+  </span>
 
   {
     Array.from({ length: delta }, (_, i) =>
@@ -146,7 +150,7 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
           <span class:list={[enabledText]}>{footerButtons.latter[i]}</span>
         </a>
       ) : (
-        <span />
+        <span class:list={[baseButton]} />
       )
     )
   }
@@ -157,17 +161,17 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
         <span class:list={[disabledText]}>{footerButtons.latterOmission}</span>
       </div>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 
   {
     footerButtons.last ? (
-      <a href={page.url.last} class:list={[baseButton, enabledButton]} aria-label="先頭ページへ">
+      <a href={page.url.last} class:list={[baseButton, enabledButton]} aria-label="末尾のページへ">
         <span class:list={[enabledText]}>{page.lastPage}</span>
       </a>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 
@@ -177,7 +181,7 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
         <span class:list={[enabledText]}>&rarr;</span>
       </a>
     ) : (
-      <span />
+      <span class:list={[baseButton]} />
     )
   }
 </div>

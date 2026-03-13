@@ -1,0 +1,16 @@
+---
+import GameCard from "../_components/GameCard.astro";
+
+import type { GameData } from "../_components/games.ts";
+
+interface Props {
+  games: GameData[];
+  isDisplayYear: boolean;
+}
+
+const { games, isDisplayYear } = Astro.props;
+---
+
+<div class="my-4 grid grid-cols-2 gap-4 px-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  {games.map((game) => <GameCard gameData={game} isDisplayYear={isDisplayYear} />)}
+</div>

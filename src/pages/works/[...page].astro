@@ -1,12 +1,12 @@
 ---
-import GameCard from "./_components/GameCard.astro";
 import NextPrevButton from "./_components/NextPrevButton.astro";
+import WorksGrid from "./_components/WorksGrid.astro";
+import WorksLayout from "./_components/WorksLayout.astro";
 import { games } from "./_components/games.ts";
-import Layout from "../../layouts/Layout.astro";
 
 import type { PaginateFunction } from "astro";
 
-const uniqueYears = [...new Set(games.map((game) => game.year))];
+const uniqueYears = [...new Set(games.map((game) => game.year).filter((year) => year != null))];
 const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
@@ -16,24 +16,19 @@ export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
 const { page } = Astro.props;
 ---
 
-<Layout title="作品紹介" class="max-w-container">
-  <section class="m-auto w-[80%]">
-    <h2 class="my-4 text-2xl font-bold md:text-3xl">作品集</h2>
-    <div class="my-4 flex flex-wrap gap-3 py-2">
-      {
-        sortedUniqueYears.map((year) => (
-          <a
-            href={`/works/${year}`}
-            class="rounded-full bg-purple-500 px-4 py-2 text-base text-white shadow-md hover:bg-purple-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-700 focus-visible:ring-offset-2"
-          >
-            {year}年
-          </a>
-        ))
-      }
-    </div>
-    <div class="my-4 grid grid-cols-1 gap-4 px-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {page.data.map((game) => <GameCard gameData={game} isDisplayYear={true} />)}
-    </div>
-    <NextPrevButton page={page} />
-  </section>
-</Layout>
+<WorksLayout title="作品紹介">
+  <div class="my-4 flex flex-wrap gap-3 py-2">
+    {
+      sortedUniqueYears.map((year) => (
+        <a
+          href={`/works/${year}`}
+          class="rounded-full bg-purple-500 px-4 py-2 text-base text-white shadow-md hover:bg-purple-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-700 focus-visible:ring-offset-2"
+        >
+          {year}年
+        </a>
+      ))
+    }
+  </div>
+  <WorksGrid games={page.data} isDisplayYear={true} />
+  <NextPrevButton page={page} />
+</WorksLayout>
