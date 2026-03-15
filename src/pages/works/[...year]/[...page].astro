@@ -1,0 +1,37 @@
+---
+import NextPrevButton from "../_components/NextPrevButton.astro";
+import WorksGrid from "../_components/WorksGrid.astro";
+import WorksLayout from "../_components/WorksLayout.astro";
+import { games } from "../_components/games.ts";
+
+import type { PaginateFunction } from "astro";
+
+export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const uniqueYears = [...new Set(games.map((game) => game.year))];
+
+  return uniqueYears.flatMap((year) => {
+    const filteredGames = games.filter((game) => game.year == year);
+    return paginate(filteredGames, {
+      params: { year: year.toString() },
+      pageSize: 8,
+    });
+  });
+}
+
+const { year } = Astro.params;
+const { page } = Astro.props;
+---
+
+<WorksLayout title=`${year}年 作品紹介`>
+  <WorksGrid games={page.data} isDisplayYear={false} />
+  <NextPrevButton page={page} />
+  <div class="flex items-center justify-center">
+    <a
+      href="/works"
+      aria-label="作品一覧に戻る"
+      class="rounded-full bg-pink-500 px-8 py-4 shadow-md hover:bg-pink-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
+    >
+      <span class="text-base font-bold text-white"> 作品一覧に戻る </span>
+    </a>
+  </div>
+</WorksLayout>
