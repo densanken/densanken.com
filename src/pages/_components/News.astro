@@ -1,11 +1,23 @@
 ---
 import Button from "../../components/Button.astro";
+
+interface Props {
+  description?: string;
+  showAllButton?: boolean;
+}
+
+const { description, showAllButton = true } = Astro.props;
 ---
 
 <section>
   <h2 class="my-2 text-2xl font-bold md:mb-4 md:text-3xl">News</h2>
+  {description && <p class="mt-2 mb-4">{description}</p>}
   <slot />
-  <Button class="mt-6 bg-purple-600 text-white shadow-purple-600/50 focus-visible:ring-purple-600" href="/news"
-    >すべてのNewsを見る<span aria-hidden="true">&rarr;</span></Button
-  >
+  {
+    showAllButton && (
+      <Button class="mt-6 bg-purple-600 text-white shadow-purple-600/50 focus-visible:ring-purple-600" href="/news">
+        すべてのNewsを見る<span aria-hidden="true">&rarr;</span>
+      </Button>
+    )
+  }
 </section>
