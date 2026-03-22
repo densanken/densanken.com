@@ -1,0 +1,12 @@
+---
+interface Props {
+  month: number;
+  class?: string;
+}
+
+const { month, class: className } = Astro.props;
+---
+
+<span class:list={["inline-block rounded-full px-3 py-1 font-bold shadow-md", className]}>
+  {month}月
+</span>

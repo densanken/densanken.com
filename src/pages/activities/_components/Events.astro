@@ -1,0 +1,96 @@
+---
+import EventCard from "./EventCard.astro";
+import EventMonthBadge from "./EventMonthBadge.astro";
+import EventMonthly from "./EventMonthly.astro";
+
+interface Props {
+  class?: string;
+}
+
+/**
+ * 色のイメージ
+ *
+ * 4月: 桜
+ * 5月: 新緑
+ * 8月: ひまわり
+ * 11月: 紅葉
+ * 12月: 冬
+ * 2月: 極寒
+ * 3月: 梅
+ */
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "mx-auto w-full md:w-5/6 lg:w-3/4 xl:w-2/3",
+    "relative flex flex-col gap-10 pl-12",
+    "before:absolute before:top-4 before:bottom-0 before:left-5.75 before:w-0.5 before:-translate-x-1/2 before:bg-blue-600",
+    "after:absolute after:-bottom-1 after:left-5.75 after:-translate-x-1/2",
+    "after:border-x-6 after:border-t-10 after:border-x-transparent after:border-t-blue-600",
+    className,
+  ]}
+>
+  <EventMonthly class="before:bg-pink-500">
+    <EventMonthBadge month={4} class="bg-pink-500/90 text-white shadow-pink-500/80" />
+    <EventCard name="サークルの日" class="shadow-pink-500/60">
+      <p>新入生向けのイベントでゲームの展示を行います。</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-emerald-500">
+    <EventMonthBadge month={5} class="bg-emerald-500 text-white shadow-emerald-500/80" />
+    <EventCard name="新歓イベント" class="shadow-emerald-500/60">
+      <p>新入生歓迎会！ようこそCCSへ！</p>
+    </EventCard>
+    <EventCard name="初心者講座" class="shadow-emerald-500/60">
+      <p>プログラミング、DTM、グラフィックなど複数の初心者講座を7月末まで行います。</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-amber-400">
+    <EventMonthBadge month={8} class="bg-amber-400 text-white shadow-amber-400/80" />
+    <EventCard name="ゲーム制作会夏" class="shadow-amber-400/60">
+      <p>チームを結成し、1ヶ月以上かけてゲームを制作します。</p>
+    </EventCard>
+    <EventCard name="夏コミ出展" class="shadow-amber-400/60">
+      <p>お盆に行われるコミックマーケットに出展します。</p>
+      <p>CCSで制作したゲームを頒布します。</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-orange-500">
+    <EventMonthBadge month={11} class="bg-orange-500/90 text-white shadow-orange-500/80" />
+    <EventCard name="大学祭" class="shadow-orange-500/60">
+      <p>千葉大祭でゲームの展示を行います。</p>
+      <p>OBやOGの方がたくさん来てくれます！</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-violet-700">
+    <EventMonthBadge month={12} class="bg-violet-700 text-white shadow-violet-700/80" />
+    <EventCard name="アドベントカレンダー" class="shadow-violet-700/60">
+      <p>1日から25日までの記事リレーです。</p>
+      <p>CCSに関係することに限らず、様々な記事が執筆されます。</p>
+    </EventCard>
+    <EventCard name="冬コミ出展" class="shadow-violet-700/60">
+      <p>年末に行われるコミックマーケットに出展します。</p>
+      <p>CCSで制作したゲームを頒布します。</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-blue-600">
+    <EventMonthBadge month={2} class="bg-blue-600 text-white shadow-blue-600/80" />
+    <EventCard name="ゲーム制作会冬" class="shadow-blue-600/60">
+      <p>チームを結成し、1ヶ月以上かけてゲームを制作します。</p>
+    </EventCard>
+  </EventMonthly>
+
+  <EventMonthly class="before:bg-rose-600">
+    <EventMonthBadge month={3} class="bg-rose-600 text-white shadow-rose-600/80" />
+    <EventCard name="追いコン" class="shadow-rose-600/60">
+      <p>卒業する人を送る会です。</p>
+    </EventCard>
+  </EventMonthly>
+</div>

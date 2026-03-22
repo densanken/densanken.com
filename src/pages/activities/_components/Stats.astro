@@ -1,0 +1,13 @@
+---
+interface Props {
+  year: number;
+  results: string[];
+}
+
+const { year, results } = Astro.props;
+---
+
+<div>
+  <p class="font-bold">{year}</p>
+  <ul class="ml-6 list-disc">{results.map((result) => <li>{result}</li>)}</ul>
+</div>

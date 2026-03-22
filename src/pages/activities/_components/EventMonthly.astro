@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "relative flex flex-col items-start gap-4",
+    "before:absolute before:top-2.5 before:-left-7.75 before:size-3 before:rounded-full",
+    className,
+  ]}
+>
+  <slot />
+</div>
