@@ -35,7 +35,7 @@ const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
       )
     }
     <script define:vars={{ GOOGLE_ANALYTICS_ID }}>
-      if (!GOOGLE_ANALYTICS_ID) {
+      if (GOOGLE_ANALYTICS_ID) {
         window.dataLayer = window.dataLayer || [];
         function gtag() {
           dataLayer.push(arguments);
