@@ -29,15 +29,21 @@ const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
     <title>{title} - 千葉大学電子計算機研究会（CCS）</title>
 
     <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
+    {
+      GOOGLE_ANALYTICS_ID && (
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} is:inline />
+      )
+    }
     <script define:vars={{ GOOGLE_ANALYTICS_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      if (!GOOGLE_ANALYTICS_ID) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-      gtag("config", GOOGLE_ANALYTICS_ID);
+        gtag("config", GOOGLE_ANALYTICS_ID);
+      }
     </script>
   </head>
   <body class="flex min-h-screen flex-col">
