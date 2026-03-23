@@ -16,7 +16,9 @@ const { description, showAllButton = true } = Astro.props;
   {
     showAllButton && (
       <Button class="mt-6 bg-purple-600 text-white shadow-purple-600/50 focus-visible:ring-purple-600" href="/news">
-        すべてのNewsを見る<span aria-hidden="true">&rarr;</span>
+        <span>
+          すべてのNewsを見る <span aria-hidden="true">&rarr;</span>
+        </span>
       </Button>
     )
   }
