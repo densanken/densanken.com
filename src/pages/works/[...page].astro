@@ -9,6 +9,8 @@ import type { PaginateFunction } from "astro";
 const uniqueYears = [...new Set(games.map((game) => game.year).filter((year): year is number => year !== null))];
 const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
+const nullYearsCount = [...new Set(games.filter((game) => game.year === null))].length;
+
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   return paginate(games, { pageSize: 8 });
 }
@@ -27,6 +29,16 @@ const { page } = Astro.props;
           {year}年
         </a>
       ))
+    }
+    {
+      nullYearsCount > 0 && (
+        <a
+          href={`/works/others`}
+          class="flex w-full items-center justify-center rounded-full bg-violet-600 py-2 text-base text-white shadow-md hover:bg-violet-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-2"
+        >
+          その他
+        </a>
+      )
     }
   </div>
   <WorksGrid games={page.data} isDisplayYear={true} />

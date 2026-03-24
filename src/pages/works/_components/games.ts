@@ -21,6 +21,13 @@ const _games = Array.from({ length: 300 }, (_, i) => {
 
 export const games = [
   {
+    title: `テストnull作品`,
+    id: "nullable",
+    year: null,
+    description: `テストnull作品`,
+    atwikiUrl: "#",
+  },
+  {
     title: `テスト作品`,
     id: "affsa",
     year: 2025,

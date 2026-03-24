@@ -33,10 +33,11 @@ const { gameData, isDisplayYear } = Astro.props;
 
       {
         isDisplayYear && (
-          <span class="absolute top-2 left-2 rounded-md bg-white px-2 py-1 font-bold">{gameData.year}</span>
+          <span class="absolute top-2 left-2 rounded-md bg-white px-2 py-1 font-bold">{gameData.year ?? "その他"}</span>
         )
       }
     </div>
+
     <div class="flex flex-col justify-between p-4">
       <div>
         <p class="line-clamp-1 text-2xl font-bold">
