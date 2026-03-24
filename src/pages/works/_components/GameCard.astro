@@ -19,11 +19,9 @@ for (const [key, value] of Object.entries(matchedImages)) {
 const { gameData, isDisplayYear } = Astro.props;
 ---
 
-<div id={gameData.id} class="flex items-center justify-center">
-  <div
-    class="group flex aspect-square w-full flex-col overflow-hidden rounded-lg border border-black bg-white p-1 shadow-lg sm:w-3xs"
-  >
-    <div class="relative flex h-[56.25%] w-full items-center justify-center overflow-hidden bg-gray-100">
+<div id={gameData.id} class="flex justify-center">
+  <div class="group flex w-full flex-col overflow-hidden rounded-lg bg-white shadow-lg sm:w-3xs">
+    <div class="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-gray-800 text-sm">
       {
         gameData.imageSrc && images[gameData.imageSrc] ? (
           <Image src={images[gameData.imageSrc]} alt={gameData.title} class="h-full w-full object-contain" />
@@ -32,14 +30,18 @@ const { gameData, isDisplayYear } = Astro.props;
         )
       }
 
-      {isDisplayYear && <span class="absolute top-2 left-2 rounded-full bg-white px-2 py-1">{gameData.year}</span>}
+      {
+        isDisplayYear && (
+          <span class="absolute top-2 left-2 rounded-md bg-white px-2 py-1 font-bold">{gameData.year}</span>
+        )
+      }
     </div>
-    <div class="flex h-[43.75%] flex-col justify-between p-2">
+    <div class="flex flex-col justify-between p-4">
       <div>
-        <p class="line-clamp-1 font-bold">
+        <p class="line-clamp-1 text-2xl font-bold">
           {gameData.title}
         </p>
-        <p class="line-clamp-2 text-xs">
+        <p>
           {gameData.description}
         </p>
       </div>
@@ -49,7 +51,7 @@ const { gameData, isDisplayYear } = Astro.props;
             href={gameData.atwikiUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-1 text-xs text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-1 text-xs text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
             &#8599;@wiki
           </a>

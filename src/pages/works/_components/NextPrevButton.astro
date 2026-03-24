@@ -79,11 +79,11 @@ function getFooterButtons(currentPage: number, lastPage: number) {
   return buttons;
 }
 
-const baseButton = "size-8 lg:size-16 flex justify-center items-center rounded-full text-base lg:text-3xl font-bold";
+const baseButton = "size-8 lg:size-10 flex justify-center items-center rounded-sm text-base lg:text-xl font-bold";
 const enabledButton =
-  "bg-blue-500  hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 shadow-md";
+  "bg-indigo-500  hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500";
 const enabledText = "text-white";
-const disabledText = "text-blue-500";
+const disabledText = "text-indigo-500";
 
 // 隣接ページとして表示されるページ数
 const delta = 1;
@@ -92,11 +92,11 @@ const { page } = Astro.props;
 const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
 ---
 
-<div class="my-8 flex justify-between">
+<div class="mx-auto my-8 flex w-full justify-between md:w-2/3 xl:w-1/2">
   {
     page.currentPage != 1 && page.url.prev ? (
       <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="前のページへ">
-        <span class:list={[enabledText]}>&larr;</span>
+        <span class:list={[enabledText]}>&lt;</span>
       </a>
     ) : (
       <span class:list={[baseButton]} />
@@ -178,7 +178,7 @@ const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
   {
     page.currentPage != page.lastPage && page.url.next ? (
       <a href={page.url.next} class:list={[baseButton, enabledButton]} aria-label="次のページへ">
-        <span class:list={[enabledText]}>&rarr;</span>
+        <span class:list={[enabledText]}>&gt;</span>
       </a>
     ) : (
       <span class:list={[baseButton]} />

@@ -7,7 +7,7 @@ export interface GameData {
   atwikiUrl?: string;
 }
 
-export const games = Array.from({ length: 300 }, (_, i) => {
+const _games = Array.from({ length: 300 }, (_, i) => {
   const num = i + 1;
 
   return {
@@ -18,3 +18,14 @@ export const games = Array.from({ length: 300 }, (_, i) => {
     atwikiUrl: "#",
   };
 }) satisfies GameData[];
+
+export const games = [
+  {
+    title: `テスト作品`,
+    id: "affsa",
+    year: 2025,
+    description: `テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。テスト作品です。`,
+    atwikiUrl: "#",
+  },
+  ..._games,
+];

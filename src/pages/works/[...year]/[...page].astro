@@ -22,14 +22,14 @@ const { year } = Astro.params;
 const { page } = Astro.props;
 ---
 
-<WorksLayout title=`${year}年 作品紹介`>
+<WorksLayout title=`${year}年 作品一覧`>
   <WorksGrid games={page.data} isDisplayYear={false} />
   <NextPrevButton page={page} />
   <div class="flex items-center justify-center">
     <a
       href="/works"
       aria-label="作品一覧に戻る"
-      class="rounded-full bg-pink-500 px-8 py-4 shadow-md hover:bg-pink-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2"
+      class="rounded-full bg-orange-500 px-8 py-4 shadow-md hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
     >
       <span class="text-base font-bold text-white"> 作品一覧に戻る </span>
     </a>
