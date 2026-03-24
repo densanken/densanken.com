@@ -92,7 +92,57 @@ const { page } = Astro.props;
 const footerButtons = getFooterButtons(page.currentPage, page.lastPage);
 ---
 
-<div class="mx-auto my-8 flex w-full justify-between md:w-2/3 xl:w-1/2">
+<div class="visible mx-auto my-8 flex w-full justify-center gap-4 md:invisible">
+  {
+    page.url.first ? (
+      <a href={page.url.first} class:list={[baseButton, enabledButton]} aria-label="先頭のページへ">
+        <span class:list={[enabledText]}>&lt;&lt;</span>
+      </a>
+    ) : (
+      <span class:list={[baseButton]} />
+    )
+  }
+
+  {
+    page.currentPage != 1 && page.url.prev ? (
+      <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="前のページへ">
+        <span class:list={[enabledText]}>&lt;</span>
+      </a>
+    ) : (
+      <span class:list={[baseButton]} />
+    )
+  }
+
+  <span
+    class:list={[baseButton, disabledText]}
+    aria-current="page"
+    aria-label={`現在のページ ${footerButtons.current}`}
+  >
+    {footerButtons.current}&sol;{page.lastPage}
+  </span>
+
+  {
+    page.currentPage != page.lastPage && page.url.next ? (
+      <a href={page.url.next} class:list={[baseButton, enabledButton]} aria-label="次のページへ">
+        <span class:list={[enabledText]}>&gt;</span>
+      </a>
+    ) : (
+      <span class:list={[baseButton]} />
+    )
+  }
+
+  {
+    page.url.last ? (
+      <a href={page.url.last} class:list={[baseButton, enabledButton]} aria-label="末尾のページへ">
+        <span class:list={[enabledText]}>&gt;&gt;</span>
+      </a>
+    ) : (
+      <span class:list={[baseButton]} />
+    )
+  }
+</div>
+
+<div class="invisible mx-auto my-8 flex w-full justify-between md:visible md:w-2/3 xl:w-1/2">
   {
     page.currentPage != 1 && page.url.prev ? (
       <a href={page.url.prev} class:list={[baseButton, enabledButton]} aria-label="前のページへ">

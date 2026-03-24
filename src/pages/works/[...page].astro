@@ -6,7 +6,7 @@ import { games } from "./_components/games.ts";
 
 import type { PaginateFunction } from "astro";
 
-const uniqueYears = [...new Set(games.map((game) => game.year).filter((year) => year != null))];
+const uniqueYears = [...new Set(games.map((game) => game.year).filter((year): year is number => year !== null))];
 const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {

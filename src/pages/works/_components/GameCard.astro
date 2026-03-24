@@ -1,4 +1,5 @@
 ---
+import { ExternalLink } from "@lucide/astro";
 import { Image } from "astro:assets";
 
 import type { GameData } from "./games.ts";
@@ -51,9 +52,10 @@ const { gameData, isDisplayYear } = Astro.props;
             href={gameData.atwikiUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-1 text-xs text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-gray-400 px-2 py-1 text-xs text-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
-            &#8599;@wiki
+            <ExternalLink class="mr-1 inline-block align-text-bottom" size={12} />
+            @wiki
           </a>
         )
       }

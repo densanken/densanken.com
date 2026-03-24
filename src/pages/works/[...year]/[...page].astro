@@ -7,10 +7,10 @@ import { games } from "../_components/games.ts";
 import type { PaginateFunction } from "astro";
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const uniqueYears = [...new Set(games.map((game) => game.year))];
+  const uniqueYears = [...new Set(games.map((game) => game.year).filter((year): year is number => year !== null))];
 
   return uniqueYears.flatMap((year) => {
-    const filteredGames = games.filter((game) => game.year == year);
+    const filteredGames = games.filter((game) => game.year === year);
     return paginate(filteredGames, {
       params: { year: year.toString() },
       pageSize: 8,
