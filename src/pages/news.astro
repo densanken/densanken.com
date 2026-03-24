@@ -1,17 +1,13 @@
 ---
-import Activities from "./_components/Activities.astro";
-import CatchCopy from "./_components/CatchCopy.astro";
-import Join from "./_components/Join.astro";
-import Location from "./_components/Location.astro";
-// import News from "./_components/News.astro";
-// import NewsContent from "./_components/NewsContent.astro";
+import News from "./_components/News.astro";
+import NewsContent from "./_components/NewsContent.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to CCS!">
-  <CatchCopy />
+<Layout title="News">
   <div class="mx-5 my-4 flex flex-col gap-8 md:mx-auto md:w-4/5 xl:w-2/3 2xl:w-1/2">
-    <!-- <News>
+    <News description="CCSからのお知らせです。" showAllButton={false}>
+      <!-- TODO: insert me -->
       <NewsContent
         href="link/to/news/page"
         title="本年もどうぞよろしくお願い申し上げます"
@@ -32,9 +28,6 @@ import Layout from "../layouts/Layout.astro";
         description="旧年中は大変お世話になり誠にありがとうございました"
         badges={["活動", "新年のご挨拶"]}
       />
-    </News> -->
-    <Activities />
-    <Location />
-    <Join />
+    </News>
   </div>
 </Layout>

@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, description, class: className } = Astro.props;
+
+const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
 ---
 
 <!doctype html>
@@ -24,7 +26,25 @@ const { title, description, class: className } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{title} - 千葉大学電子計算機研究会（CCS）</title>
+
+    <!-- Google tag (gtag.js) -->
+    {
+      GOOGLE_ANALYTICS_ID && (
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} is:inline />
+      )
+    }
+    <script define:vars={{ GOOGLE_ANALYTICS_ID }}>
+      if (GOOGLE_ANALYTICS_ID) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", GOOGLE_ANALYTICS_ID);
+      }
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />

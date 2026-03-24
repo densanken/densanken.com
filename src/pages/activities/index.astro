@@ -1,0 +1,109 @@
+---
+import { ExternalLink } from "@lucide/astro";
+
+import Events from "./_components/Events.astro";
+import Stats from "./_components/Stats.astro";
+// import Button from "../../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="活動内容"
+  description="CCSの活動内容について紹介します。"
+  class="mx-6 mb-12 md:mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2"
+>
+  <h1 id="activities" class="mt-4 text-2xl font-bold md:my-8 md:text-3xl lg:mt-16">活動内容</h1>
+  <p>CCSでは主にプログラミング、DTM、グラフィックの活動を行っています。</p>
+  <p>ここに記載されている内容以外にも、あなたが興味を持った活動ができます！</p>
+
+  <section>
+    <h2 id="programming">プログラミング</h2>
+    <p>ゲーム制作、Web開発、競技プログラミングなどを行っています。</p>
+    <p>年度初めにはプログラミング講座を行っており、これまでプログラミングをやったことがない人も安心です。</p>
+
+    <div>
+      <div>
+        <h3 id="game-development">ゲーム制作</h3>
+        <p>年2回行われるゲーム制作会でゲームを制作します。</p>
+        <p>主にUnityというソフトウェアを用いて、C#によるプログラミングを行います。</p>
+        <!-- <Button
+          href="/works"
+          class="mt-6 bg-fuchsia-700 text-white shadow-fuchsia-700/50 focus-visible:ring-fuchsia-700"
+        >
+          <span>過去作品の一覧を見る <span aria-hidden="true">&rarr;</span></span>
+        </Button> -->
+
+        <details class="mx-4 mt-6">
+          <summary class="cursor-pointer font-bold">ゲーム制作会とは？</summary>
+          <p>夏休みと春休みに、3~4人ほどのチームを結成して1つのゲームを制作します。</p>
+          <p>作成したゲームは大学祭での展示のほか、コミックマーケットでの頒布を行います。</p>
+        </details>
+      </div>
+
+      <div>
+        <h3 id="web-development">Web開発</h3>
+        <p>ホームページやWebアプリケーションの開発を主にチームで行います。</p>
+      </div>
+
+      <div>
+        <h3 id="competitive-programming">競技プログラミング</h3>
+        <div>
+          <p>
+            決められた条件のもとで与えられた問題、課題をプログラミングを用いて解決し、その過程や結果を競うものを競技プログラミングといいます。
+          </p>
+          <p>様々なジャンルの出題がされますが、プログラミングや思考力、数学力、知識を活用します。</p>
+          <p class="mt-1 text-sm">
+            <ExternalLink class="mr-1 inline-block align-text-bottom" size={14} /><a
+              href="https://info.atcoder.jp/overview/about/competitive"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline">競技プログラミングとは？ - AtCoderInfo</a
+            > より
+          </p>
+        </div>
+
+        <p class="mt-6">
+          毎週末に開催されるABC（AtCoder Beginner
+          Contest）などの振り返り会のほか、7月に行われるICPC（ACM国際大学対抗プログラミングコンテスト）国内予選などにも参加し、結果を残しています。
+        </p>
+
+        <div class="m-4 flex flex-col gap-2">
+          <Stats year={2025} results={["ICPC国内予選 25位", "ICPCアジア太平洋地区大会 20位"]} />
+          <Stats year={2023} results={["ICPC国内予選 6位", "ICPCアジア太平洋地区大会 16位"]} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="dtm">DTM</h2>
+    <p>DTMとはパソコンを用いた音楽制作のことをいいます。</p>
+    <p>ゲーム制作会でのBGMやSE制作を行うほか、毎月作曲した作品の発表会を行っています。</p>
+    <p class="mt-4">年度初めには初心者講座があるので、初心者の方も安心して参加することができます。</p>
+  </section>
+
+  <section>
+    <h2 id="graphic">グラフィック</h2>
+    <p>主にゲーム制作会でのイラスト制作や、コミックマーケットのサークルカット制作などを行います。</p>
+    <p class="mt-4">こちらも年度初めには初心者講座があります。</p>
+  </section>
+
+  <section>
+    <h2 id="schedule">EVENTS</h2>
+    <p>1年間の主なイベントです。</p>
+    <p>この他にも、総会が毎月あったり、有志によるイベントが開催されていたりします。</p>
+    <Events class="mt-6" />
+  </section>
+</Layout>
+
+<style>
+  @reference "../../styles/global.css";
+
+  h2 {
+    @apply mt-8 mb-2 scroll-mt-20 text-xl font-bold md:text-2xl;
+  }
+
+  h3 {
+    @apply mt-6 scroll-mt-20 text-lg font-bold md:mb-2 md:text-xl;
+  }
+</style>
