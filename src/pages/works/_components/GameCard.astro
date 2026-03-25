@@ -1,0 +1,65 @@
+---
+import { ExternalLink } from "@lucide/astro";
+import { Image } from "astro:assets";
+
+import type { GameData } from "./games.ts";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  gameData: GameData;
+  isDisplayYear: boolean;
+}
+
+const matchedImages = import.meta.glob<{ default: ImageMetadata }>("../assets/*", { eager: true });
+const images: Record<string, ImageMetadata> = {};
+for (const [key, value] of Object.entries(matchedImages)) {
+  const fileName = key.split("/").pop()!;
+  images[fileName] = value.default;
+}
+
+const { gameData, isDisplayYear } = Astro.props;
+---
+
+<div id={gameData.id} class="flex justify-center">
+  <div class="group flex w-full flex-col overflow-hidden rounded-lg bg-white shadow-lg sm:w-3xs">
+    <div class="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-gray-100 text-sm">
+      {
+        gameData.imageSrc && images[gameData.imageSrc] ? (
+          <Image src={images[gameData.imageSrc]} alt={gameData.title} class="h-full w-full object-contain" />
+        ) : (
+          <span class="text-sm font-bold text-gray-400">NO IMAGE</span>
+        )
+      }
+
+      {
+        isDisplayYear && (
+          <span class="absolute top-2 left-2 rounded-md bg-white px-2 py-1 font-bold">{gameData.year ?? "その他"}</span>
+        )
+      }
+    </div>
+
+    <div class="flex flex-col justify-between p-4">
+      <div>
+        <p class="line-clamp-1 text-2xl font-bold">
+          {gameData.title}
+        </p>
+        <p>
+          {gameData.description}
+        </p>
+      </div>
+      {
+        gameData.atwikiUrl && (
+          <a
+            href={gameData.atwikiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-gray-200 px-2 py-1 text-xs text-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+          >
+            <ExternalLink class="mr-1 inline-block align-text-bottom" size={12} />
+            @wiki
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>
