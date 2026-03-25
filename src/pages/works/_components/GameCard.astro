@@ -22,7 +22,7 @@ const { gameData, isDisplayYear } = Astro.props;
 
 <div id={gameData.id} class="flex justify-center">
   <div class="group flex w-full flex-col overflow-hidden rounded-lg bg-white shadow-lg sm:w-3xs">
-    <div class="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-gray-800 text-sm">
+    <div class="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-gray-100 text-sm">
       {
         gameData.imageSrc && images[gameData.imageSrc] ? (
           <Image src={images[gameData.imageSrc]} alt={gameData.title} class="h-full w-full object-contain" />
@@ -53,7 +53,7 @@ const { gameData, isDisplayYear } = Astro.props;
             href={gameData.atwikiUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-gray-400 px-2 py-1 text-xs text-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            class="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-gray-200 px-2 py-1 text-xs text-black transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
           >
             <ExternalLink class="mr-1 inline-block align-text-bottom" size={12} />
             @wiki
