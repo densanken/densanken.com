@@ -7,12 +7,8 @@ import { games } from "../_components/games.ts";
 import type { PaginateFunction } from "astro";
 
 export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const nullYears = [...new Set(games.map((game) => game.year).filter((year): year is number => year === null))];
-
-  return nullYears.flatMap((year) => {
-    const filteredGames = games.filter((game) => game.year === year);
-    return paginate(filteredGames, { pageSize: 8 });
-  });
+  const filteredGames = games.filter((game) => game.year === null);
+  return paginate(filteredGames, { pageSize: 8 });
 }
 
 const { page } = Astro.props;

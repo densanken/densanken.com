@@ -22,7 +22,7 @@ const { year } = Astro.params;
 const { page } = Astro.props;
 ---
 
-<WorksLayout title=`${year}年 作品一覧`>
+<WorksLayout title={`${year}年 作品一覧`}>
   <WorksGrid games={page.data} isDisplayYear={false} />
   <NextPrevButton page={page} />
   <div class="flex items-center justify-center">
