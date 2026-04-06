@@ -3,7 +3,7 @@ import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 
 const CONTACT_GOOGLE_FORM_URL = import.meta.env.CONTACT_GOOGLE_FORM_URL;
-// const JOIN_GOOGLE_FORM_URL = import.meta.env.JOIN_GOOGLE_FORM_URL;
+const JOIN_GOOGLE_FORM_URL = import.meta.env.JOIN_GOOGLE_FORM_URL;
 ---
 
 <Layout
@@ -24,7 +24,6 @@ const CONTACT_GOOGLE_FORM_URL = import.meta.env.CONTACT_GOOGLE_FORM_URL;
   </Button>
 
   <h2 id="join" class="mt-10 mb-2 scroll-mt-20 text-xl font-bold md:text-2xl">入会について</h2>
-  <!--
   <p>CCSへの入会申請につきましては、こちらのボタンよりお願いいたします。</p>
   <p>Googleフォームに遷移します。</p>
   <p>（千葉大学の学生に限ります）</p>
@@ -36,7 +35,6 @@ const CONTACT_GOOGLE_FORM_URL = import.meta.env.CONTACT_GOOGLE_FORM_URL;
     <span>入会申請はこちら <span aria-hidden="true">&rarr;</span></span>
     <span class="text-xs">（外部リンクに遷移します）</span>
   </Button>
-   -->
-  <p>CCSへの入会申請はサークルの日（2026年4月6日（月）13:00）以降に受付を開始します。</p>
-  <p>（千葉大学の学生に限ります）</p>
+  <!-- <p>CCSへの入会申請はサークルの日（2026年4月6日（月）13:00）以降に受付を開始します。</p>
+  <p>（千葉大学の学生に限ります）</p> -->
 </Layout>
