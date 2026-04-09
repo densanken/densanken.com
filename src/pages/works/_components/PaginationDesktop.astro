@@ -1,0 +1,117 @@
+---
+import PaginationArrow from "./PaginationArrow.astro";
+import {
+  paginationBaseButton,
+  paginationDelta,
+  paginationDisabledText,
+  paginationEnabledButton,
+  paginationEnabledText,
+} from "./pagination.ts";
+
+import type { PaginatedPage, PaginationDisplay } from "./pagination.ts";
+
+interface Props {
+  page: PaginatedPage;
+  paginationDisplay: PaginationDisplay;
+  hasPrev: boolean;
+  hasNext: boolean;
+}
+
+const { page, paginationDisplay, hasPrev, hasNext } = Astro.props;
+const enabledButtonClass = `${paginationBaseButton} ${paginationEnabledButton}`;
+const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
+---
+
+<div class="mx-auto my-8 hidden w-full justify-between md:flex md:w-2/3 xl:w-1/2">
+  {
+    hasPrev ? (
+      <a href={page.url.prev} class={enabledButtonClass} aria-label="前のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="prev" label="前のページへ" />
+        </span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+
+  {
+    paginationDisplay.firstPage ? (
+      <a href={page.url.first} class={enabledButtonClass} aria-label="先頭のページへ">
+        <span class={paginationEnabledText}>{paginationDisplay.firstPage}</span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+
+  {
+    paginationDisplay.previousOmission ? (
+      <div class={paginationBaseButton}>
+        <span class={paginationDisabledText}>{paginationDisplay.previousOmission}</span>
+      </div>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+
+  {
+    Array.from({ length: paginationDelta }, (_, i) =>
+      paginationDisplay.previousPages[i] ? (
+        <a href={page.url.prev} class={enabledButtonClass} aria-label={paginationDisplay.previousPages[i]}>
+          <span class={paginationEnabledText}>{paginationDisplay.previousPages[i]}</span>
+        </a>
+      ) : (
+        <span class={paginationBaseButton} />
+      )
+    )
+  }
+
+  <span class={currentButtonClass} aria-current="page" aria-label={`現在のページ ${paginationDisplay.currentPage}`}>
+    {paginationDisplay.currentPage}
+  </span>
+
+  {
+    Array.from({ length: paginationDelta }, (_, i) =>
+      paginationDisplay.nextPages[i] ? (
+        <a href={page.url.next} class={enabledButtonClass} aria-label={paginationDisplay.nextPages[i]}>
+          <span class={paginationEnabledText}>{paginationDisplay.nextPages[i]}</span>
+        </a>
+      ) : (
+        <span class={paginationBaseButton} />
+      )
+    )
+  }
+
+  {
+    paginationDisplay.nextOmission ? (
+      <div class={paginationBaseButton}>
+        <span class={paginationDisabledText}>{paginationDisplay.nextOmission}</span>
+      </div>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+
+  {
+    paginationDisplay.lastPage ? (
+      <a href={page.url.last} class={enabledButtonClass} aria-label="末尾のページへ">
+        <span class={paginationEnabledText}>{paginationDisplay.lastPage}</span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+
+  {
+    hasNext ? (
+      <a href={page.url.next} class={enabledButtonClass} aria-label="次のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="next" label="次のページへ" />
+        </span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} />
+    )
+  }
+</div>
