@@ -2,7 +2,7 @@
 import { ExternalLink } from "@lucide/astro";
 import { Image } from "astro:assets";
 
-import type { GameData } from "./games.ts";
+import type { GameData } from "../games.ts";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -40,12 +40,8 @@ const { gameData, isDisplayYear } = Astro.props;
 
     <div class="flex flex-col justify-between p-4">
       <div>
-        <p class="line-clamp-1 text-2xl font-bold">
-          {gameData.title}
-        </p>
-        <p>
-          {gameData.description}
-        </p>
+        <p class="text-2xl font-bold">{gameData.title}</p>
+        <p class="mt-1">{gameData.description}</p>
       </div>
       {
         gameData.atwikiUrl && (
