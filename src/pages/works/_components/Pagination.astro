@@ -15,5 +15,11 @@ const hasPrev = page.currentPage !== 1 && !!page.url.prev;
 const hasNext = page.currentPage !== page.lastPage && !!page.url.next;
 ---
 
-<PaginationMobile page={page} paginationDisplay={paginationDisplay} hasPrev={hasPrev} hasNext={hasNext} />
-<PaginationDesktop page={page} paginationDisplay={paginationDisplay} hasPrev={hasPrev} hasNext={hasNext} />
+{
+  page.lastPage > 1 && (
+    <>
+      <PaginationMobile page={page} paginationDisplay={paginationDisplay} hasPrev={hasPrev} hasNext={hasNext} />
+      <PaginationDesktop page={page} paginationDisplay={paginationDisplay} hasPrev={hasPrev} hasNext={hasNext} />
+    </>
+  )
+}
