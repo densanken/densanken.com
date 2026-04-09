@@ -1,5 +1,5 @@
 ---
-import NextPrevButton from "./_components/NextPrevButton.astro";
+import Pagination from "./_components/Pagination.astro";
 import WorksGrid from "./_components/WorksGrid.astro";
 import WorksLayout from "./_components/WorksLayout.astro";
 import { games } from "./games.ts";
@@ -11,15 +11,16 @@ const sortedUniqueYears = uniqueYears.sort((a, b) => b - a);
 
 const nullYearsCount = [...new Set(games.filter((game) => game.year === null))].length;
 
-export function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  return paginate(games, { pageSize: 8 });
-}
+export const getStaticPaths = ({ paginate }: { paginate: PaginateFunction }) => {
+  // 作品は新しい順に表示するため、配列を逆順にする
+  return paginate(games.toReversed(), { pageSize: 12 });
+};
 
 const { page } = Astro.props;
 ---
 
-<WorksLayout title="作品一覧">
-  <div class="my-6 grid grid-cols-[repeat(auto-fit,85px)] justify-center gap-2">
+<WorksLayout title="作品一覧" description="CCSで制作された作品の一覧です。">
+  <div class="my-6 grid grid-cols-[repeat(auto-fit,85px)] justify-start gap-2">
     {
       sortedUniqueYears.map((year) => (
         <a
@@ -42,5 +43,5 @@ const { page } = Astro.props;
     }
   </div>
   <WorksGrid games={page.data} isDisplayYear={true} />
-  <NextPrevButton page={page} />
+  <Pagination page={page} />
 </WorksLayout>
