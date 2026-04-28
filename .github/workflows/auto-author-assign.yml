@@ -14,4 +14,4 @@ jobs:
     name: Assign PR author as assignee
     runs-on: ubuntu-slim
     steps:
-      - uses: toshimaru/auto-author-assign@v3.0.1
+      - uses: toshimaru/auto-author-assign@v3.0.2
