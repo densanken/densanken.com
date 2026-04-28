@@ -1,0 +1,80 @@
+---
+import PaginationArrow from "./PaginationArrow.astro";
+import {
+  paginationBaseButton,
+  paginationDisabledText,
+  paginationEnabledButton,
+  paginationEnabledText,
+} from "./pagination.ts";
+
+import type { PaginatedPage } from "./pagination.ts";
+
+interface Props {
+  page: PaginatedPage;
+  hasPrev: boolean;
+  hasNext: boolean;
+}
+
+const { page, hasPrev, hasNext } = Astro.props;
+const enabledButtonClass = `${paginationBaseButton} ${paginationEnabledButton}`;
+const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
+---
+
+<!-- モバイルはページ番号を省き、先頭・前・現在/総数・次・末尾の5枠だけにする。 -->
+<div class="mx-auto my-8 flex w-full justify-center gap-4 md:hidden">
+  {
+    page.url.first ? (
+      <a href={page.url.first} class={enabledButtonClass} aria-label="先頭のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="prev" double label="先頭のページへ" />
+        </span>
+      </a>
+    ) : (
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  {
+    hasPrev ? (
+      <a href={page.url.prev} class={enabledButtonClass} aria-label="前のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="prev" label="前のページへ" />
+        </span>
+      </a>
+    ) : (
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  <span class={currentButtonClass} aria-current="page" aria-label={`現在のページ ${page.currentPage}`}>
+    {page.currentPage}&sol;{page.lastPage}
+  </span>
+
+  {
+    hasNext ? (
+      <a href={page.url.next} class={enabledButtonClass} aria-label="次のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="next" label="次のページへ" />
+        </span>
+      </a>
+    ) : (
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  {
+    page.url.last ? (
+      <a href={page.url.last} class={enabledButtonClass} aria-label="末尾のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="next" double label="末尾のページへ" />
+        </span>
+      </a>
+    ) : (
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+</div>

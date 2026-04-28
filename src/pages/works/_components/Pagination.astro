@@ -1,0 +1,25 @@
+---
+import PaginationDesktop from "./PaginationDesktop.astro";
+import PaginationMobile from "./PaginationMobile.astro";
+import { getPaginationSlots } from "./pagination.ts";
+
+import type { PaginatedPage } from "./pagination.ts";
+
+interface Props {
+  page: PaginatedPage;
+}
+
+const { page } = Astro.props;
+const paginationSlots = getPaginationSlots(page.currentPage, page.lastPage);
+const hasPrev = page.currentPage !== 1 && !!page.url.prev;
+const hasNext = page.currentPage !== page.lastPage && !!page.url.next;
+---
+
+{
+  page.lastPage > 1 && (
+    <>
+      <PaginationMobile page={page} hasPrev={hasPrev} hasNext={hasNext} />
+      <PaginationDesktop page={page} paginationSlots={paginationSlots} hasPrev={hasPrev} hasNext={hasNext} />
+    </>
+  )
+}

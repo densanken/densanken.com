@@ -1,0 +1,163 @@
+---
+import PaginationArrow from "./PaginationArrow.astro";
+import {
+  getPageUrl,
+  paginationBaseButton,
+  paginationDisabledText,
+  paginationEnabledButton,
+  paginationEnabledText,
+  paginationDelta,
+} from "./pagination.ts";
+
+import type { PaginatedPage, PaginationGap, PaginationSlots } from "./pagination.ts";
+
+interface Props {
+  page: PaginatedPage;
+  paginationSlots: PaginationSlots;
+  hasPrev: boolean;
+  hasNext: boolean;
+}
+
+const { page, paginationSlots, hasPrev, hasNext } = Astro.props;
+const enabledButtonClass = `${paginationBaseButton} ${paginationEnabledButton}`;
+const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
+const getPageAriaLabel = (pageNumber: number) => `${pageNumber}ページへ`;
+
+const renderGapLabel = (gap: PaginationGap) => (gap === "ellipsis" ? "…" : gap.toString());
+---
+
+<!-- Desktop は固定スロットで描画し、端のページでも現在ページの位置がずれないようにする。 -->
+<div class="mx-auto my-8 hidden w-full justify-center gap-4 md:flex">
+  {
+    hasPrev ? (
+      <a href={page.url.prev} class={enabledButtonClass} aria-label="前のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="prev" label="前のページへ" />
+        </span>
+      </a>
+    ) : (
+      // 1ページ目でも左矢印分の幅を確保し、中央の番号表示が右に寄らないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  <!-- 先頭ページ枠。現在ページが先頭付近なら空枠にして位置を固定する。 -->
+  {
+    paginationSlots.firstPage ? (
+      <a
+        href={getPageUrl(page, paginationSlots.firstPage)}
+        class={enabledButtonClass}
+        aria-label={getPageAriaLabel(paginationSlots.firstPage)}
+      >
+        <span class={paginationEnabledText}>{paginationSlots.firstPage}</span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  <!-- 先頭ページと現在ページ周辺の間。1ページだけ空く場合は ... ではなく数字を表示する。 -->
+  {
+    paginationSlots.previousGap ? (
+      paginationSlots.previousGap !== "ellipsis" ? (
+        <a
+          href={getPageUrl(page, paginationSlots.previousGap)}
+          class={enabledButtonClass}
+          aria-label={getPageAriaLabel(paginationSlots.previousGap)}
+        >
+          <span class={paginationEnabledText}>{renderGapLabel(paginationSlots.previousGap)}</span>
+        </a>
+      ) : (
+        <div class={paginationBaseButton}>
+          <span class={paginationDisabledText}>{renderGapLabel(paginationSlots.previousGap)}</span>
+        </div>
+      )
+    ) : (
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  <!-- 現在ページの左隣に表示するページ番号枠。枠数は paginationDelta で決まる。 -->
+  {
+    Array.from({ length: paginationDelta }, (_, index) => {
+      const pageNumber = paginationSlots.previousPages[index];
+
+      return pageNumber ? (
+        <a href={getPageUrl(page, pageNumber)} class={enabledButtonClass} aria-label={getPageAriaLabel(pageNumber)}>
+          <span class={paginationEnabledText}>{pageNumber}</span>
+        </a>
+      ) : (
+        <span class={paginationBaseButton} aria-hidden="true" />
+      );
+    })
+  }
+
+  <!-- 現在ページはリンクにせず、aria-current で現在位置を伝える。 -->
+  <span class={currentButtonClass} aria-current="page" aria-label={`現在のページ ${paginationSlots.currentPage}`}>
+    {paginationSlots.currentPage}
+  </span>
+
+  <!-- 現在ページの右隣に表示するページ番号枠。枠数は paginationDelta で決まる。 -->
+  {
+    Array.from({ length: paginationDelta }, (_, index) => {
+      const pageNumber = paginationSlots.nextPages[index];
+
+      return pageNumber ? (
+        <a href={getPageUrl(page, pageNumber)} class={enabledButtonClass} aria-label={getPageAriaLabel(pageNumber)}>
+          <span class={paginationEnabledText}>{pageNumber}</span>
+        </a>
+      ) : (
+        <span class={paginationBaseButton} aria-hidden="true" />
+      );
+    })
+  }
+
+  <!-- 現在ページ周辺と末尾ページの間。1ページだけ空く場合は ... ではなく数字を表示する。 -->
+  {
+    paginationSlots.nextGap ? (
+      paginationSlots.nextGap !== "ellipsis" ? (
+        <a
+          href={getPageUrl(page, paginationSlots.nextGap)}
+          class={enabledButtonClass}
+          aria-label={getPageAriaLabel(paginationSlots.nextGap)}
+        >
+          <span class={paginationEnabledText}>{renderGapLabel(paginationSlots.nextGap)}</span>
+        </a>
+      ) : (
+        <div class={paginationBaseButton}>
+          <span class={paginationDisabledText}>{renderGapLabel(paginationSlots.nextGap)}</span>
+        </div>
+      )
+    ) : (
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  <!-- 末尾ページ枠。現在ページが末尾付近なら空枠にして位置を固定する。 -->
+  {
+    paginationSlots.lastPage ? (
+      <a
+        href={getPageUrl(page, paginationSlots.lastPage)}
+        class={enabledButtonClass}
+        aria-label={getPageAriaLabel(paginationSlots.lastPage)}
+      >
+        <span class={paginationEnabledText}>{paginationSlots.lastPage}</span>
+      </a>
+    ) : (
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+
+  {
+    hasNext ? (
+      <a href={page.url.next} class={enabledButtonClass} aria-label="次のページへ">
+        <span class={paginationEnabledText}>
+          <PaginationArrow direction="next" label="次のページへ" />
+        </span>
+      </a>
+    ) : (
+      // 最終ページでも右矢印分の幅を確保し、中央の番号表示が左に寄らないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
+    )
+  }
+</div>
