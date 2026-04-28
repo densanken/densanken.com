@@ -14,7 +14,7 @@ export const getStaticPaths = ({ paginate }: { paginate: PaginateFunction }) => 
     const filteredGames = games.filter((game) => game.year === year);
     return paginate(filteredGames, {
       params: { year: year.toString() },
-      pageSize: 8,
+      pageSize: 12,
     });
   });
 };
@@ -28,7 +28,7 @@ const { page } = Astro.props;
   <Pagination page={page} />
   <Button
     href="/works"
-    class="mx-auto bg-orange-500 px-8 py-4 text-base text-white shadow-md shadow-orange-500 hover:bg-orange-600 focus-visible:ring-orange-500"
+    class="mx-auto mt-12 bg-orange-500 px-8 py-4 text-base text-white shadow-md shadow-orange-500 hover:bg-orange-600 focus-visible:ring-orange-500"
   >
     作品一覧に戻る
   </Button>
