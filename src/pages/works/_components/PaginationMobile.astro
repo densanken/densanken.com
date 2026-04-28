@@ -7,20 +7,20 @@ import {
   paginationEnabledText,
 } from "./pagination.ts";
 
-import type { PaginatedPage, PaginationDisplay } from "./pagination.ts";
+import type { PaginatedPage } from "./pagination.ts";
 
 interface Props {
   page: PaginatedPage;
-  paginationDisplay: PaginationDisplay;
   hasPrev: boolean;
   hasNext: boolean;
 }
 
-const { page, paginationDisplay, hasPrev, hasNext } = Astro.props;
+const { page, hasPrev, hasNext } = Astro.props;
 const enabledButtonClass = `${paginationBaseButton} ${paginationEnabledButton}`;
 const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
 ---
 
+<!-- モバイルはページ番号を省き、先頭・前・現在/総数・次・末尾の5枠だけにする。 -->
 <div class="mx-auto my-8 flex w-full justify-center gap-4 md:hidden">
   {
     page.url.first ? (
@@ -30,7 +30,8 @@ const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
         </span>
       </a>
     ) : (
-      <span class={paginationBaseButton} />
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
     )
   }
 
@@ -42,12 +43,13 @@ const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
         </span>
       </a>
     ) : (
-      <span class={paginationBaseButton} />
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
     )
   }
 
-  <span class={currentButtonClass} aria-current="page" aria-label={`現在のページ ${paginationDisplay.currentPage}`}>
-    {paginationDisplay.currentPage}&sol;{page.lastPage}
+  <span class={currentButtonClass} aria-current="page" aria-label={`現在のページ ${page.currentPage}`}>
+    {page.currentPage}&sol;{page.lastPage}
   </span>
 
   {
@@ -58,7 +60,8 @@ const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
         </span>
       </a>
     ) : (
-      <span class={paginationBaseButton} />
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
     )
   }
 
@@ -70,7 +73,8 @@ const currentButtonClass = `${paginationBaseButton} ${paginationDisabledText}`;
         </span>
       </a>
     ) : (
-      <span class={paginationBaseButton} />
+      // ボタンがない場合も空枠を置き、現在ページ表示が左右にずれないようにする。
+      <span class={paginationBaseButton} aria-hidden="true" />
     )
   }
 </div>
