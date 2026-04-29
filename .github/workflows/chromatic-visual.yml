@@ -1,0 +1,46 @@
+name: Chromatic Visual Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  chromatic-visual:
+    name: Chromatic Visual Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: write
+    env:
+      CHROMATIC_ARCHIVE_LOCATION: ./test-results/chromatic
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run Playwright visual tests
+        run: pnpm test:visual
+
+      - name: Upload to Chromatic
+        run: pnpm chromatic:playwright
