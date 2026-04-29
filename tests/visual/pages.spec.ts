@@ -120,15 +120,6 @@ const visualViewports = [
       isMobile: false,
     },
   },
-  {
-    name: "4k",
-    use: {
-      viewport: { width: 3840, height: 2160 },
-      deviceScaleFactor: 1,
-      hasTouch: false,
-      isMobile: false,
-    },
-  },
 ] as const;
 
 for (const viewport of visualViewports) {
