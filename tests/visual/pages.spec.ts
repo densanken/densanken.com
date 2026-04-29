@@ -142,7 +142,7 @@ for (const viewport of visualViewports) {
         await expect(page.locator("body")).toBeVisible();
         await preparePageForVisualSnapshot(page);
 
-        await takeSnapshot(page, name, testInfo);
+        await takeSnapshot(page, viewport.label, testInfo);
 
         if (shouldSaveLocalPng) {
           await page.screenshot({
