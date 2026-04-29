@@ -77,6 +77,7 @@ async function preparePageForVisualSnapshot(page: Page) {
 const visualViewports = [
   {
     name: "mobile-l",
+    label: "Mobile L",
     use: {
       viewport: { width: 425, height: 800 },
       deviceScaleFactor: 2,
@@ -86,6 +87,7 @@ const visualViewports = [
   },
   {
     name: "tablet",
+    label: "Tablet",
     use: {
       viewport: { width: 768, height: 1024 },
       deviceScaleFactor: 1,
@@ -95,6 +97,7 @@ const visualViewports = [
   },
   {
     name: "laptop",
+    label: "Laptop",
     use: {
       viewport: { width: 1280, height: 720 },
       deviceScaleFactor: 1,
@@ -104,6 +107,7 @@ const visualViewports = [
   },
   {
     name: "fhd",
+    label: "FHD",
     use: {
       viewport: { width: 1920, height: 1080 },
       deviceScaleFactor: 1,
@@ -113,6 +117,7 @@ const visualViewports = [
   },
   {
     name: "wqhd",
+    label: "WQHD",
     use: {
       viewport: { width: 2560, height: 1440 },
       deviceScaleFactor: 1,
@@ -123,7 +128,7 @@ const visualViewports = [
 ] as const;
 
 for (const viewport of visualViewports) {
-  test.describe(viewport.name, () => {
+  test.describe(viewport.label, () => {
     test.use({
       ...viewport.use,
       disableAutoSnapshot: true,
@@ -131,13 +136,13 @@ for (const viewport of visualViewports) {
       prefersReducedMotion: "reduce",
     });
 
-    for (const path of visualTestPaths) {
-      test(`visual page ${path}`, async ({ page }, testInfo) => {
+    for (const { name, path } of visualTestPaths) {
+      test(name, async ({ page }, testInfo) => {
         await page.goto(path, { waitUntil: "load" });
         await expect(page.locator("body")).toBeVisible();
         await preparePageForVisualSnapshot(page);
 
-        await takeSnapshot(page, `page:${path}`, testInfo);
+        await takeSnapshot(page, name, testInfo);
 
         if (shouldSaveLocalPng) {
           await page.screenshot({
