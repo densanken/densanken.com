@@ -2,7 +2,7 @@ import { expect, takeSnapshot, test } from "@chromatic-com/playwright";
 
 import { visualTestPaths } from "./paths";
 
-import type { Page } from "@playwright/test";
+import type { Page, TestInfo } from "@playwright/test";
 
 const shouldSaveLocalPng = !process.env.CI;
 
@@ -137,7 +137,7 @@ for (const viewport of visualViewports) {
     });
 
     for (const { name, path } of visualTestPaths) {
-      test(name, async ({ page }, testInfo) => {
+      test(name, async ({ page }: { page: Page }, testInfo: TestInfo) => {
         await page.goto(path, { waitUntil: "load" });
         await expect(page.locator("body")).toBeVisible();
         await preparePageForVisualSnapshot(page);
