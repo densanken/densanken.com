@@ -12,6 +12,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+chromatic.log
+build-archive.log
+
+# test output
+test-results/
+playwright-report/
+chromatic-diagnostics.json
 
 # environment variables
 .env

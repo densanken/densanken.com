@@ -7,6 +7,8 @@
     "start": "astro preview",
     "build": "astro build",
     "preview": "astro preview",
+    "test:visual": "playwright test -c playwright.chromatic.config.ts",
+    "chromatic:playwright": "chromatic --playwright --exit-zero-on-changes",
     "lint": "tsc --noEmit && eslint --fix && prettier --write .",
     "lint:check": "tsc --noEmit && eslint",
     "fmt": "prettier --write .",
@@ -26,10 +28,14 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@chromatic-com/playwright": "^0.14.0",
     "@eslint/js": "^10.0.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/parser": "^8.3.0",
+    "chromatic": "^16.10.1",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
