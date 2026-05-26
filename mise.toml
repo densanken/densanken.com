@@ -1,0 +1,11 @@
+[settings]
+experimental = true
+# .nvmrc を有効にする
+idiomatic_version_file_enable_tools = ["node"]
+node.corepack = true
+
+[hooks]
+postinstall = '''
+corepack enable
+echo "[mise hook] Corepack enabled"
+'''
