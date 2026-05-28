@@ -36,7 +36,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "chromatic": "^16.10.1",
+    "chromatic": "^17.0.0",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.0.0",
