@@ -34,7 +34,7 @@ const GOOGLE_ANALYTICS_ID = import.meta.env.GOOGLE_ANALYTICS_ID;
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} is:inline />
       )
     }
-    <script define:vars={{ GOOGLE_ANALYTICS_ID }}>
+    <script define:vars={{ GOOGLE_ANALYTICS_ID }} is:inline>
       if (GOOGLE_ANALYTICS_ID) {
         window.dataLayer = window.dataLayer || [];
         function gtag() {
