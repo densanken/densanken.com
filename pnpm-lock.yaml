@@ -38,7 +38,7 @@ importers:
     devDependencies:
       '@chromatic-com/playwright':
         specifier: ^0.14.0
-        version: 0.14.5(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 0.14.6(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.4.1(jiti@2.7.0))
@@ -59,7 +59,7 @@ importers:
         version: 8.60.1(eslint@10.4.1(jiti@2.7.0))(typescript@6.0.3)
       chromatic:
         specifier: ^17.0.0
-        version: 17.2.0(@chromatic-com/playwright@0.14.5(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+        version: 17.2.0(@chromatic-com/playwright@0.14.6(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       eslint:
         specifier: ^10.0.0
         version: 10.4.1(jiti@2.7.0)
@@ -298,8 +298,8 @@ packages:
     resolution: {integrity: sha512-VERIM64vtTP1C4mxQ5thVT9fK0apjPFobqybMtA1UdUujWka24ERHbRHFGmpbbhp73MhV+KSsHQH9C6uOTdEQA==}
     engines: {node: '>=18'}
 
-  '@chromatic-com/playwright@0.14.5':
-    resolution: {integrity: sha512-ZFS0Dl0XoIEkf4nayG/inPXZKFWNuojityJaYaOX+YqbV8Q31a/hcI55jSoJYpqT8p+MxeZYlEAmyO/9gb2tAQ==}
+  '@chromatic-com/playwright@0.14.6':
+    resolution: {integrity: sha512-fQ0mPRdKxuqywjLAm3gDIRIkjQHyPAKjrQrhaQxaIcp2SGBPLsE0N6HWTHDcqYcl3En3k+5/b+icMIsPR4rBtA==}
     hasBin: true
     peerDependencies:
       '@playwright/test': ^1.0.0
@@ -3170,6 +3170,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.2:
+    resolution: {integrity: sha512-c8jsqUZm3omBOI66G90z1Dyw5z622G8oLG+omfsHBJf3CWQTlOcwOjvOG6wtiNfW6anKm/eA39LMwMtMez2TiQ==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -3959,7 +3964,7 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@chromatic-com/playwright@0.14.5(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@chromatic-com/playwright@0.14.6(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@chromaui/rrweb-snapshot': 2.0.0-alpha.19-noAbsolute
       '@playwright/test': 1.60.0
@@ -5136,11 +5141,11 @@ snapshots:
     dependencies:
       readdirp: 5.0.0
 
-  chromatic@17.2.0(@chromatic-com/playwright@0.14.5(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
+  chromatic@17.2.0(@chromatic-com/playwright@0.14.6(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)):
     dependencies:
       semver: 7.8.1
     optionalDependencies:
-      '@chromatic-com/playwright': 0.14.5(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@chromatic-com/playwright': 0.14.6(@playwright/test@1.60.0)(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
 
   ci-info@4.4.0: {}
 
@@ -7104,6 +7109,8 @@ snapshots:
 
   semver@7.8.1: {}
 
+  semver@7.8.2: {}
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -7230,7 +7237,7 @@ snapshots:
       esbuild: 0.27.7
       open: 10.2.0
       recast: 0.23.11
-      semver: 7.8.1
+      semver: 7.8.2
       use-sync-external-store: 1.6.0(react@19.2.7)
       ws: 8.21.0
     optionalDependencies:
