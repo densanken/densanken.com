@@ -7,11 +7,11 @@
     "start": "astro preview",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "tsc --noEmit && eslint --fix && prettier --write .",
-    "lint:check": "tsc --noEmit && eslint",
+    "lint": "astro check && tsc --noEmit && eslint --fix && prettier --write .",
+    "lint:check": "astro check --minimumFailingSeverity hint && tsc --noEmit && eslint",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
-    "check": "tsc --noEmit && eslint && prettier --check .",
+    "check": "astro check --minimumFailingSeverity hint && tsc --noEmit && eslint && prettier --check .",
     "test:visual": "playwright test -c playwright.chromatic.config.ts",
     "chromatic:playwright": "chromatic --playwright --exit-zero-on-changes",
     "postinstall": "lefthook install"
@@ -29,6 +29,7 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@chromatic-com/playwright": "^0.14.0",
     "@eslint/js": "^10.0.0",
     "@playwright/test": "^1.60.0",
