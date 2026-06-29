@@ -95,16 +95,16 @@ const visualViewports = [
       isMobile: false,
     },
   },
-  {
-    name: "laptop",
-    label: "Laptop",
-    use: {
-      viewport: { width: 1280, height: 720 },
-      deviceScaleFactor: 1,
-      hasTouch: false,
-      isMobile: false,
-    },
-  },
+  // {
+  //   name: "laptop",
+  //   label: "Laptop",
+  //   use: {
+  //     viewport: { width: 1280, height: 720 },
+  //     deviceScaleFactor: 1,
+  //     hasTouch: false,
+  //     isMobile: false,
+  //   },
+  // },
   {
     name: "fhd",
     label: "FHD",
@@ -115,16 +115,16 @@ const visualViewports = [
       isMobile: false,
     },
   },
-  {
-    name: "wqhd",
-    label: "WQHD",
-    use: {
-      viewport: { width: 2560, height: 1440 },
-      deviceScaleFactor: 1,
-      hasTouch: false,
-      isMobile: false,
-    },
-  },
+  // {
+  //   name: "wqhd",
+  //   label: "WQHD",
+  //   use: {
+  //     viewport: { width: 2560, height: 1440 },
+  //     deviceScaleFactor: 1,
+  //     hasTouch: false,
+  //     isMobile: false,
+  //   },
+  // },
 ] as const;
 
 for (const viewport of visualViewports) {
