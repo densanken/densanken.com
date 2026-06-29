@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>densanken/renovate-config"]
+  "extends": ["github>densanken/renovate-config"],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["ci:skip-chromatic"]
+    }
+  ]
 }

@@ -5,6 +5,12 @@ on:
     branches:
       - main
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
 
 jobs:
   chromatic-visual:
@@ -17,7 +23,9 @@ jobs:
     env:
       CHROMATIC_ARCHIVE_LOCATION: ./test-results/chromatic
       CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-
+    if: >
+      github.event_name == 'push' ||
+      !contains(github.event.pull_request.labels.*.name, 'ci:skip-chromatic')
     steps:
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
