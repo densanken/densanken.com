@@ -5,3 +5,6 @@ allowBuilds:
   lefthook: true
   sharp: false
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  # Renovate security update: astro@7.1.0
+  - astro@7.1.0
