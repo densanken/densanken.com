@@ -62,7 +62,7 @@ importers:
         version: 8.68.0(eslint@10.9.1(jiti@2.7.0))(typescript@6.0.3)
       chromatic:
         specifier: ^18.0.0
-        version: 18.5.0(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8))
+        version: 18.6.0(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8))
       eslint:
         specifier: ^10.0.0
         version: 10.9.1(jiti@2.7.0)
@@ -1764,8 +1764,8 @@ packages:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
     engines: {node: '>= 20.19.0'}
 
-  chromatic@18.5.0:
-    resolution: {integrity: sha512-3oBcGP4V+6SV0qu2NJnutnPYsrxnPpOHhtQAbzxEtIQrDJNzn1wfXtzwkEiJGQm5eANTW0AvL4WxHtz+BTJbYg==}
+  chromatic@18.6.0:
+    resolution: {integrity: sha512-AfZ/rscek7V5SiBOQ2A5Xkns+URf/YoYXGz4ZLUhEu9aCZXGmUE1TY6P+wkjRYxeqQ7+nq5tpZ0dB9UGEQd8WA==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -5527,7 +5527,7 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chromatic@18.5.0(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)):
+  chromatic@18.6.0(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)):
     dependencies:
       semver: 7.8.5
     optionalDependencies:
