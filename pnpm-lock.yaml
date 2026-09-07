@@ -41,13 +41,13 @@ importers:
         version: 0.9.10(prettier-plugin-astro@0.14.1)(prettier@3.9.6)(typescript@6.0.3)
       '@chromatic-com/playwright':
         specifier: ^0.14.0
-        version: 0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)
+        version: 0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.10.0(jiti@2.7.0))
       '@playwright/test':
         specifier: ^1.60.0
-        version: 1.62.1
+        version: 1.63.0
       '@types/node':
         specifier: ^25.8.0
         version: 25.9.5
@@ -62,7 +62,7 @@ importers:
         version: 8.69.0(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3)
       chromatic:
         specifier: ^18.0.0
-        version: 18.7.2(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8))
+        version: 18.7.2(@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8))
       eslint:
         specifier: ^10.0.0
         version: 10.10.0(jiti@2.7.0)
@@ -1004,8 +1004,8 @@ packages:
   '@oxc-project/types@0.148.0':
     resolution: {integrity: sha512-Nm4s/jB+4FpFsPhWGEC4h7rzksesmtnMXomo6rCMcg/b8zLQuOziRgkCS1fxDCXOlJB/6Q8oABOZ/OP6RIPj9A==}
 
-  '@playwright/test@1.62.1':
-    resolution: {integrity: sha512-DTcUc8qii+cpHvtOwggMtBRMjKZHXYWdw8syRYu2vtzuq4Wxphqq4NfCs5Zt44L6mA8rfDfj+PHnxFc/FeK6mQ==}
+  '@playwright/test@1.63.0':
+    resolution: {integrity: sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -2257,11 +2257,6 @@ packages:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 
-  fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -3058,13 +3053,13 @@ packages:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
-  playwright-core@1.62.1:
-    resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
+  playwright-core@1.63.0:
+    resolution: {integrity: sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.62.1:
-    resolution: {integrity: sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==}
+  playwright@1.63.0:
+    resolution: {integrity: sha512-+7ziBLidS4NaNCdt57SUDT+wYmmd5fmiQejUic/kb+YsYSCPyOOE9sebzMjNmQrsnNpDJqd4WHvV/8lfKfUDUg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4233,10 +4228,10 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)':
+  '@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)':
     dependencies:
       '@chromaui/rrweb-snapshot': 2.0.0-alpha.19-noAbsolute
-      '@playwright/test': 1.62.1
+      '@playwright/test': 1.63.0
       storybook: 10.2.13(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)
     transitivePeerDependencies:
       - '@testing-library/dom'
@@ -4689,9 +4684,9 @@ snapshots:
 
   '@oxc-project/types@0.148.0': {}
 
-  '@playwright/test@1.62.1':
+  '@playwright/test@1.63.0':
     dependencies:
-      playwright: 1.62.1
+      playwright: 1.63.0
 
   '@rolldown/binding-android-arm-eabi@1.2.7':
     optional: true
@@ -5531,11 +5526,11 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chromatic@18.7.2(@chromatic-com/playwright@0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)):
+  chromatic@18.7.2(@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)):
     dependencies:
       semver: 7.8.5
     optionalDependencies:
-      '@chromatic-com/playwright': 0.14.12(@playwright/test@1.62.1)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)
+      '@chromatic-com/playwright': 0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.1)(prettier@3.9.6)(react@19.2.8)
 
   ci-info@4.4.0: {}
 
@@ -6169,9 +6164,6 @@ snapshots:
   for-each@0.3.5:
     dependencies:
       is-callable: 1.2.7
-
-  fsevents@2.3.2:
-    optional: true
 
   fsevents@2.3.3:
     optional: true
@@ -6909,13 +6901,11 @@ snapshots:
 
   picomatch@4.0.7: {}
 
-  playwright-core@1.62.1: {}
+  playwright-core@1.63.0: {}
 
-  playwright@1.62.1:
+  playwright@1.63.0:
     dependencies:
-      playwright-core: 1.62.1
-    optionalDependencies:
-      fsevents: 2.3.2
+      playwright-core: 1.63.0
 
   possible-typed-array-names@1.1.0: {}
 
