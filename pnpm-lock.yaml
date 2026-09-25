@@ -40,8 +40,8 @@ importers:
         specifier: ^0.9.9
         version: 0.9.10(@emnapi/runtime@1.11.3)(prettier-plugin-astro@0.14.1)(prettier@3.9.8)(typescript@6.0.3)
       '@chromatic-com/playwright':
-        specifier: ^0.14.0
-        version: 0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)
+        specifier: ^0.15.0
+        version: 0.15.0(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.11.0(jiti@2.7.0))
@@ -62,7 +62,7 @@ importers:
         version: 8.70.1(eslint@10.11.0(jiti@2.7.0))(typescript@6.0.3)
       chromatic:
         specifier: ^18.0.0
-        version: 18.9.4(@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0))
+        version: 18.9.4(@chromatic-com/playwright@0.15.0(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0))
       eslint:
         specifier: ^10.0.0
         version: 10.11.0(jiti@2.7.0)
@@ -379,8 +379,9 @@ packages:
     resolution: {integrity: sha512-CuNiSqg7+e1cO/GjffyMOm5Tt2jUF9CWHHnvQ/UkqvtkGfHdgwEC0wpmq7fkN3gxwpRnrAN0WzO3vREKmNolMQ==}
     engines: {node: '>=18'}
 
-  '@chromatic-com/playwright@0.14.12':
-    resolution: {integrity: sha512-TZk3ZtMkhAnkKXNWi9R/CJKGFmRSNDVB6yHmLluiT8rau2tdCL0GSzwBo95iWLY2Jl8jcGyZjBywaiRDNWfcig==}
+  '@chromatic-com/playwright@0.15.0':
+    resolution: {integrity: sha512-JrDVJHQrrpezc7JKRxGHojENOX8e+1KRjzMK+8aKvE2V0Fk6CbPjWjEsU/lbGM076qkW95B/WpMBDvL+CaB+jg==}
+    engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
       '@playwright/test': ^1.0.0
@@ -4269,7 +4270,7 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)':
+  '@chromatic-com/playwright@0.15.0(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)':
     dependencies:
       '@chromaui/rrweb-snapshot': 2.0.0-alpha.19-noAbsolute
       '@playwright/test': 1.63.0
@@ -5585,11 +5586,11 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chromatic@18.9.4(@chromatic-com/playwright@0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)):
+  chromatic@18.9.4(@chromatic-com/playwright@0.15.0(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)):
     dependencies:
       semver: 7.8.5
     optionalDependencies:
-      '@chromatic-com/playwright': 0.14.12(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)
+      '@chromatic-com/playwright': 0.15.0(@playwright/test@1.63.0)(@testing-library/dom@10.4.2)(prettier@3.9.8)(react@19.3.0)
 
   ci-info@4.4.0: {}
 
