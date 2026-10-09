@@ -15,7 +15,7 @@
     "test:visual": "playwright test -c playwright.chromatic.config.ts",
     "chromatic:playwright": "chromatic --playwright --exit-zero-on-changes"
   },
-  "packageManager": "pnpm@11.28.4+sha512.f905a61563f89b49a292634d3d87d024cfdea9dccf5c66b2ccc261675fa7b2774320a959db472e6caa7f9ff7314709cd50d06c8fd64addb60647377a78d250ff",
+  "packageManager": "pnpm@12.10.0+sha512.122a7b6ddf9d40268bc0db1a9780899b95e4fa8badfca7bd450615ad8cf7c2659f5f569c20ed7c53886bc7b08d0d50a54f4ad50706847f5682ec6c5048416539",
   "dependencies": {
     "@astrojs/react": "^7.0.0",
     "@lucide/astro": "^1.0.0",
