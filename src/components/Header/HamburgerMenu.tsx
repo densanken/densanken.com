@@ -50,7 +50,7 @@ export function HamburgerMenu({ menuItems }: Props) {
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
-                className="block border-b border-zinc-300/30 px-3 py-3 text-center text-base font-thin text-zinc-700 hover:border-zinc-300"
+                className="block border-b border-zinc-300/30 px-3 py-3 text-center text-base text-zinc-700 hover:border-zinc-300"
                 href={item.href}
                 onClick={() => {
                   setIsOpen(false);
