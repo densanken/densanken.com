@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+
+import ExternalLinkSvg from "../assets/ExternalLink.svg";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -27,14 +30,18 @@ import Layout from "../layouts/Layout.astro";
       Google アナリティクス の規約の詳細に関しましては「<a
         href="https://marketingplatform.google.com/about/analytics/terms/jp/"
         target="_blank"
-        rel="noopener noreferrer">Google アナリティクス利用規約</a
+        rel="noopener noreferrer"
+        >Google アナリティクス利用規約
+        <Image src={ExternalLinkSvg} alt="" class="ml-1 inline-block h-4 w-4 align-middle" /></a
       >」をご覧ください。
     </p>
     <p>
       Google アナリティクス におけるデータの収集・処理の仕組みについては「<a
         href="https://policies.google.com/technologies/partner-sites"
         target="_blank"
-        rel="noopener noreferrer">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a
+        rel="noopener noreferrer"
+        >Google のサービスを使用するサイトやアプリから収集した情報の Google による使用
+        <Image src={ExternalLinkSvg} alt="" class="ml-1 inline-block h-4 w-4 align-middle" /></a
       >」をご覧ください。
     </p>
   </div>
@@ -43,7 +50,9 @@ import Layout from "../layouts/Layout.astro";
       Cloudflare による情報の取扱いの詳細については「<a
         href="https://www.cloudflare.com/ja-jp/privacypolicy/"
         target="_blank"
-        rel="noopener noreferrer">Cloudflare プライバシーポリシー</a
+        rel="noopener noreferrer"
+        >Cloudflare プライバシーポリシー
+        <Image src={ExternalLinkSvg} alt="" class="ml-1 inline-block h-4 w-4 align-middle" /></a
       >」をご覧ください。
     </p>
   </div>
