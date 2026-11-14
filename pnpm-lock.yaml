@@ -196,7 +196,7 @@ importers:
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.9
-        version: 0.9.12(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)
+        version: 0.9.12(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)
       '@chromatic-com/playwright':
         specifier: ^1.0.0
         version: 1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.9.10)(react@19.3.1)
@@ -252,11 +252,11 @@ importers:
         specifier: ^3.0.2
         version: 3.9.10
       prettier-plugin-astro:
-        specifier: ^0.14.0
-        version: 0.14.1
+        specifier: ^1.0.0
+        version: 1.1.2(prettier@3.9.10)
       prettier-plugin-tailwindcss:
         specifier: ^0.8.0
-        version: 0.8.1(prettier-plugin-astro@0.14.1)(prettier@3.9.10)
+        version: 0.8.1(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)
       typescript:
         specifier: ^6.0.0
         version: 6.0.3
@@ -349,9 +349,6 @@ packages:
   '@astrojs/compiler-rs@0.5.3':
     resolution: {integrity: sha512-rNSAYm5IcRJMpNm+cSMaaPNCmzCXIdiz67kcBwC1qN8eTmO48wEJ6hZdlGq60+0HIHwUlncfaMxti1Fk2uJu7w==}
     engines: {node: '>=22.12.0'}
-
-  '@astrojs/compiler@2.13.1':
-    resolution: {integrity: sha512-f3FN83d2G/v32ipNClRKgYv30onQlMZX1vCeZMjPsMMPl1mDpmbl0+N5BYo4S/ofzqJyS5hvwacEo0CCVDn/Qg==}
 
   '@astrojs/internal-helpers@0.13.2':
     resolution: {integrity: sha512-SWiNS+OMrhwWYzJENTekHUyUCMKB+tdU6D4v1ZNIU1ZHh2mScQ8WIs0J6AJ8KPXkIrs9+EZU7Rm2CstfThyVnw==}
@@ -1043,6 +1040,9 @@ packages:
     resolution: {integrity: sha512-iGURLGuKDLakSEl7Pgfv8h7f+XLT+V861Wfhz0zlEl5nyFuKUopdkFBPKqTllTUp06aOwPuH8iuUEb3yp3MpbQ==}
     engines: {node: '>=20'}
     hasBin: true
+
+  '@prettier/parse-srcset@3.1.0':
+    resolution: {integrity: sha512-FIRv2rZotO9NP/r66taYqD1zICpPiBbrECqjKV/xqNotqDxF7fLzzUeK+1RSRx9Tenk0DajR/GcRmTJ2qtHaKQ==}
 
   '@rolldown/binding-android-arm-eabi@1.2.18':
     resolution: {integrity: sha512-ubTG+4KlidvioxjOFdsdEa2F6JVGZb8m2ByJUqQ7fYzUeT1cEn194POcsQ10PKH4p//q0YQn4SB3YpSuzcA1Yg==}
@@ -3022,9 +3022,11 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-astro@0.14.1:
-    resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
-    engines: {node: ^14.15.0 || >=16.0.0}
+  prettier-plugin-astro@1.1.2:
+    resolution: {integrity: sha512-vKyJW7Bb/QcIPUebEehbG+Tn+3yTIhoJ8ecm6NyJgcOj5T2xP+eF1IxY4zv809YyA69nV4ZFj+H9mdpC5cTaQA==}
+    engines: {node: '>=22.12.0'}
+    peerDependencies:
+      prettier: ^3.5.3
 
   prettier-plugin-tailwindcss@0.8.1:
     resolution: {integrity: sha512-iaFMYqDsE4ffdDkn5qup0j5f2aCEBFZrdrZnvu9QKTlWx/iGPeQ4HHu7b7fCPMxeo9nwQBiOAh2nSypdFYWJkw==}
@@ -3204,8 +3206,9 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sass-formatter@0.7.9:
-    resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
+  sass-formatter@0.8.0:
+    resolution: {integrity: sha512-Nf4eMGE2O5vnJG7KPCRyksWS9gVKSYoUWtPeMXRRxwZSPVQhSGtL602xVYS65LvMkHmkvKa7xpauF0+/5pPwrg==}
+    hasBin: true
 
   satteri@0.11.7:
     resolution: {integrity: sha512-xDOSxkc1ew3z3IovIjmsqJaVHRXTGYJkPvx0LL/U6o90km8kSU+pmrZVvnWd5creJeE0UnvMEienlkPuYQdJaA==}
@@ -3867,9 +3870,9 @@ snapshots:
       '@emnapi/runtime': 1.11.3
       '@napi-rs/wasm-runtime': 1.2.4(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
 
-  '@astrojs/check@0.9.12(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/check@0.9.12(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
-      '@astrojs/language-server': 2.17.3(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)
+      '@astrojs/language-server': 2.17.3(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)
       chokidar: 5.0.0
       kleur: 4.1.5
       typescript: 6.0.3
@@ -3929,8 +3932,6 @@ snapshots:
     dependencies:
       '@astrojs/compiler-binding': 0.5.3
 
-  '@astrojs/compiler@2.13.1': {}
-
   '@astrojs/internal-helpers@0.13.2':
     dependencies:
       '@types/hast': 3.0.5
@@ -3942,7 +3943,7 @@ snapshots:
       unified: 11.0.5
       yaml: 2.9.1
 
-  '@astrojs/language-server@2.17.3(prettier-plugin-astro@0.14.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/language-server@2.17.3(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
       '@astrojs/astro2tsx': 0.1.4
       '@astrojs/yaml2ts': 0.2.4
@@ -3963,7 +3964,7 @@ snapshots:
       vscode-uri: 3.2.0
     optionalDependencies:
       prettier: 3.9.10
-      prettier-plugin-astro: 0.14.1
+      prettier-plugin-astro: 1.1.2(prettier@3.9.10)
     transitivePeerDependencies:
       - typescript
 
@@ -4567,6 +4568,8 @@ snapshots:
   '@playwright/test@1.65.0':
     dependencies:
       playwright: 1.65.0
+
+  '@prettier/parse-srcset@3.1.0': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.18':
     optional: true
@@ -6668,17 +6671,18 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-astro@0.14.1:
+  prettier-plugin-astro@1.1.2(prettier@3.9.10):
     dependencies:
-      '@astrojs/compiler': 2.13.1
+      '@astrojs/compiler-rs': 0.5.3
+      '@prettier/parse-srcset': 3.1.0
       prettier: 3.9.10
-      sass-formatter: 0.7.9
+      sass-formatter: 0.8.0
 
-  prettier-plugin-tailwindcss@0.8.1(prettier-plugin-astro@0.14.1)(prettier@3.9.10):
+  prettier-plugin-tailwindcss@0.8.1(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10):
     dependencies:
       prettier: 3.9.10
     optionalDependencies:
-      prettier-plugin-astro: 0.14.1
+      prettier-plugin-astro: 1.1.2(prettier@3.9.10)
 
   prettier@3.9.10: {}
 
@@ -6831,7 +6835,7 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sass-formatter@0.7.9:
+  sass-formatter@0.8.0:
     dependencies:
       suf-log: 2.5.3
 
