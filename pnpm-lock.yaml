@@ -208,13 +208,13 @@ importers:
         version: 0.9.12(prettier-plugin-astro@0.14.1)(prettier@3.10.1)(typescript@6.0.3)
       '@chromatic-com/playwright':
         specifier: ^1.0.0
-        version: 1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)
+        version: 1.0.0(@playwright/test@1.65.1)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.14.0(jiti@2.7.0))
       '@playwright/test':
         specifier: ^1.60.0
-        version: 1.65.0
+        version: 1.65.1
       '@types/node':
         specifier: ^25.8.0
         version: 25.9.9
@@ -229,7 +229,7 @@ importers:
         version: 8.72.2(eslint@10.14.0(jiti@2.7.0))(typescript@6.0.3)
       chromatic:
         specifier: ^18.0.0
-        version: 18.14.3(@chromatic-com/playwright@1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1))
+        version: 18.14.3(@chromatic-com/playwright@1.0.0(@playwright/test@1.65.1)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1))
       eslint:
         specifier: ^10.0.0
         version: 10.14.0(jiti@2.7.0)
@@ -1064,8 +1064,8 @@ packages:
     resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.65.0':
-    resolution: {integrity: sha512-iGURLGuKDLakSEl7Pgfv8h7f+XLT+V861Wfhz0zlEl5nyFuKUopdkFBPKqTllTUp06aOwPuH8iuUEb3yp3MpbQ==}
+  '@playwright/test@1.65.1':
+    resolution: {integrity: sha512-y+NCIRm2LvY4slUVWvGh1nujJ8RF/hEisIsq2mtUPgdQC4L701bq5hZGMhrpeXjACvwvO9tj5dJqhvM6TP9lbw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3026,13 +3026,13 @@ packages:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
 
-  playwright-core@1.65.0:
-    resolution: {integrity: sha512-vNSKgH6YqtN7cdT/L334zo0a+YwkrpicyrHJlWWPIm/Q+Nn2SWInil01oT0mbu96U4GgoRtCYQD9CzJQgju+lA==}
+  playwright-core@1.65.1:
+    resolution: {integrity: sha512-hqPpz7blSMPxWVdoeE1yiBSzXsKiVOd2k+kjCvmUywD2GPO2Dd9HfcWnq9NN0GHbNZDFgZ9JfBFr+X5/BLo0qw==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.65.0:
-    resolution: {integrity: sha512-F3AMWcR44qMBt4kq+6Kb6mX7bjGXshktKFOPULd7reED6ZJWevjbNRqysP7q+AATE9kdPEZBibex1BYsvpVoeA==}
+  playwright@1.65.1:
+    resolution: {integrity: sha512-vJ1FuoOrNwOKHUIVEvSt3jT1L+wjjDpwhwIstKtfvTh8XIG4FG4bIFuvNdMxi81LGfAhUgUZleVFaOLY4RIUUw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4222,10 +4222,10 @@ snapshots:
     dependencies:
       fontkitten: 1.0.3
 
-  '@chromatic-com/playwright@1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)':
+  '@chromatic-com/playwright@1.0.0(@playwright/test@1.65.1)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)':
     dependencies:
       '@chromaui/rrweb-snapshot': 2.0.0-alpha.19-noAbsolute
-      '@playwright/test': 1.65.0
+      '@playwright/test': 1.65.1
       storybook: 10.2.13(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)
     transitivePeerDependencies:
       - '@testing-library/dom'
@@ -4617,9 +4617,9 @@ snapshots:
 
   '@pkgr/core@0.3.6': {}
 
-  '@playwright/test@1.65.0':
+  '@playwright/test@1.65.1':
     dependencies:
-      playwright: 1.65.0
+      playwright: 1.65.1
 
   '@rolldown/binding-android-arm-eabi@1.2.19':
     optional: true
@@ -5423,11 +5423,11 @@ snapshots:
     dependencies:
       readdirp: 5.1.1
 
-  chromatic@18.14.3(@chromatic-com/playwright@1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)):
+  chromatic@18.14.3(@chromatic-com/playwright@1.0.0(@playwright/test@1.65.1)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)):
     dependencies:
       semver: 7.8.6
     optionalDependencies:
-      '@chromatic-com/playwright': 1.0.0(@playwright/test@1.65.0)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)
+      '@chromatic-com/playwright': 1.0.0(@playwright/test@1.65.1)(@testing-library/dom@10.4.2)(prettier@3.10.1)(react@19.3.1)
 
   ci-info@4.5.0: {}
 
@@ -6708,11 +6708,11 @@ snapshots:
 
   picomatch@4.0.7: {}
 
-  playwright-core@1.65.0: {}
+  playwright-core@1.65.1: {}
 
-  playwright@1.65.0:
+  playwright@1.65.1:
     dependencies:
-      playwright-core: 1.65.0
+      playwright-core: 1.65.1
 
   possible-typed-array-names@1.1.0: {}
 
